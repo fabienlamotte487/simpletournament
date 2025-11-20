@@ -1,8 +1,9 @@
 'use client'
 import InputText from '@/src/ui/inputText'
 import { useRef, useState } from 'react'
-import { checkInputValue, sanitizeInput } from './rules';
+import { checkInputValue, sanitizeInput } from '../../hooks/registerPseudo/rules';
 import { usePlayerStore } from '@/src/stores/usePlayerStore';
+import { registerPseudo } from '@/src/hooks/registerPseudo';
 
 export default function AddNewPlayer() {
     const [pseudo, setPseudo] = useState("");
@@ -14,8 +15,9 @@ export default function AddNewPlayer() {
         e.preventDefault();
         setError("");
 
-        let sanitizedPseudo = sanitizeInput(pseudo);
-        const response = checkInputValue(sanitizedPseudo);
+        // let sanitizedPseudo = sanitizeInput(pseudo);
+        // const response = checkInputValue(sanitizedPseudo);
+        const response = registerPseudo(pseudo);
         setError(response.message);
 
         if(response.isValid){

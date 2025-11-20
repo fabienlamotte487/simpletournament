@@ -5,4 +5,4 @@ export const INVALID_ERROR_MESSAGE = "Le pseudo rentré ne doit contenir que des
 export const MAX_LENGTH_PSEUDO = 50;
 export const MIN_LENGTH_PSEUDO = 2;
 export const REGEX_PSEUDO = /[a-zA-ZÀ-ÿ0-9 '-]+/;
-export const REGEX_CHAR_PSEUDO = /[a-zA-ZÀ-ÿ0-9 '-]/;
+export const ANTI_REGEX_PSEUDO = /[^a-zA-ZÀ-ÿ0-9 '-]/g;

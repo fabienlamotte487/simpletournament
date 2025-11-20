@@ -1,4 +1,4 @@
-import AddNewPlayer from "@/src/components/forms/addNewPlayer/addNewPlayer";
+import AddNewPlayer from "@/src/components/forms/addNewPlayer";
 import AllPlayers from "@/src/components/lists/allPlayer/allPlayers";
 
 export default function Home() {
