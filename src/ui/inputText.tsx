@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { InputType } from "../types/form";
 
-const InputText = forwardRef<HTMLInputElement, InputType>((props, ref = null) => {
+const InputText = forwardRef<HTMLInputElement, InputType>((props, ref) => {
   const {value, label, name, setInput} = props;
 
   return (
