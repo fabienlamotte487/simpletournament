@@ -15,8 +15,6 @@ export default function AddNewPlayer() {
         e.preventDefault();
         setError("");
 
-        // let sanitizedPseudo = sanitizeInput(pseudo);
-        // const response = checkInputValue(sanitizedPseudo);
         const response = registerPseudo(pseudo);
         setError(response.message);
 
