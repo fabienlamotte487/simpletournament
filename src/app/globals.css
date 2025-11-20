@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+body {
+  background: #151515;
+  color: white;
+  font-family: Inter, sans-serif;
+}
+
+/* GROS BLOCKS */
+header{
+  @apply mb-5;
+}
+
+.block {
+  @apply my-3 bg-zinc-800 p-5 rounded-lg;
+}
+
+/* typography */
+.h1 {
+  @apply text-center text-3xl mb-3;
+}
+
+.h2 {
+  @apply text-left text-2xl underline;
+}
+
+.error-message {
+  @apply text-red-500;
+}
+
+/* Formulaires */
+.f-group {
+  @apply mb-3;
+}
+
+.f-label {
+  @apply mb-7;
+}
+
+.f-input {
+  @apply bg-white border-0 outline-none text-black px-4 py-1 rounded-md;
+}
+
+/* Boutons */
+.btn {
+  @apply text-white bg-green-700 px-4 py-1 rounded-lg;
+}
+
+.btn-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  background-color: #151515;
+  cursor: pointer;
+  transition: opacity .3s ease;
+}
+
+.btn-icon:hover, .btn-icon:active {
+  opacity: .7;
+}
+
+.btn-icon.danger {
+  background-color: #b92a2a;
+}
+
+/* MODAL */
+.modal {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-black/75;
+}
+
+.modal-body {
+  background-color: #242323;
+  @apply rounded-lg shadow-xl max-w-md w-full mx-4 p-6;
+}
+
+/* Player */
+.listPlayer {
+  height: 350px;
+  @apply overflow-scroll;
+}
+.itemPlayer {
+  @apply flex justify-between py-3 border-b items-center px-2;
+}
+
+.itemPlayer:last-child {
+  @apply border-0;
+}
