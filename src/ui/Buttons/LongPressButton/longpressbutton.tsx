@@ -2,8 +2,9 @@ import { LongPressButtonProps } from "@/src/types/buttons";
 import { ReactNode, useRef, useState } from "react";
 
 function Longpressbutton(props: LongPressButtonProps) {
-  const {children, delay, handleFunction, className, timerRef} = props;
+  const {children, delay, handleFunction, className} = props;
   const [isPressed, setIsPressed] = useState(false)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   const handleStart = () => {
     setIsPressed(true)

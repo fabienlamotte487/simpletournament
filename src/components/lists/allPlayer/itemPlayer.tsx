@@ -74,7 +74,7 @@ const ItemPlayer = (props: Player) => {
                     <div className="flex flex-col">
                         <input 
                             type="text"
-                            className='f-input'
+                            className='f-input w-100'
                             id="pseudo-edit" 
                             onChange={e => setPseudoEdited(e.target.value)}
                             name="pseudo-edit"  
