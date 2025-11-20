@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import { usePlayerStore } from "@/src/stores/usePlayerStore";
 import InputText from "@/src/ui/inputText";
 import ClearIcon from '@mui/icons-material/Clear';
+import { registerPseudo } from "@/src/hooks/registerPseudo";
 
 const ItemPlayer = (props: Player) => {
     const {id, pseudo} = props
@@ -15,11 +16,20 @@ const ItemPlayer = (props: Player) => {
     const [pseudoEdited, setPseudoEdited] = useState("");
     const [editMode, setEditMode] = useState(false);
     const pseudoEditRef = useRef<HTMLInputElement>(null);
+    const [errorMessage, setErrorMessage] = useState("")
 
-    const edit = () => {
-        updatePlayer(id, {pseudo : pseudoEdited})
-        setEditMode(false)
-        setPseudoEdited("")
+    const edit = (e) => {
+        e.preventDefault();
+        setErrorMessage("")
+        
+        const response = registerPseudo(pseudoEdited);
+        setErrorMessage(response.message);
+
+        if(response.isValid){
+            updatePlayer(id, {pseudo : pseudoEdited})
+            setEditMode(false)
+            setPseudoEdited("")
+        }
     }
 
     const switchEditMode = () => {
@@ -33,19 +43,24 @@ const ItemPlayer = (props: Player) => {
 
     if(editMode){
         return (
-            <li className="itemPlayer">
-                <input 
-                    type="text"
-                    className='f-input'
-                    id="pseudo-edit" 
-                    onChange={e => setPseudoEdited(e.target.value)}
-                    name="pseudo-edit"  
-                    ref={pseudoEditRef}
-                    value={pseudoEdited} />
-                <div className="flex gap-2">
-                    <button className="btn-icon" onClick={() => edit()}><ModeEditIcon /></button>
-                    <button className="btn-icon" onClick={() => setEditMode(false)}><ClearIcon /></button>
-                </div>
+            <li>
+                <form onSubmit={edit} className="itemPlayer">
+                    <div className="flex flex-col">
+                        <input 
+                            type="text"
+                            className='f-input'
+                            id="pseudo-edit" 
+                            onChange={e => setPseudoEdited(e.target.value)}
+                            name="pseudo-edit"  
+                            ref={pseudoEditRef}
+                            value={pseudoEdited} />
+                        {errorMessage && <p className="error-message">{errorMessage}</p>}
+                    </div>
+                    <div className="flex gap-2">
+                        <button className="btn-icon" type="submit"><ModeEditIcon /></button>
+                        <button className="btn-icon" type="button" onClick={() => setEditMode(false)}><ClearIcon /></button>
+                    </div>
+                </form>
             </li>
         )
     }
