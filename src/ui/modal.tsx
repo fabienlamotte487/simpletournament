@@ -1,15 +1,6 @@
-// components/Modal.tsx
 'use client'
-
-import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
-
-type ModalProps = {
-  isOpen: boolean;
-  onClose: () => void;
-  children: ReactNode;
-  title?: string;
-}
+import { ModalProps } from '../types/modal';
 
 export function Modal({ isOpen, onClose, children, title }: ModalProps) {
   if (!isOpen) return null;

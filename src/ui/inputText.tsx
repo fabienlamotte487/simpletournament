@@ -1,15 +1,8 @@
 import { forwardRef } from "react";
+import { InputType } from "../types/form";
 
-type InputType  = {
-  value: string;
-  label?: string;
-  name: string;
-  setInput: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const InputText = forwardRef<HTMLInputElement, InputType>(
-  (props, ref = null) => {
-    const {value, label, name, setInput} = props;
+const InputText = forwardRef<HTMLInputElement, InputType>((props, ref = null) => {
+  const {value, label, name, setInput} = props;
 
   return (
     <div className='f-group'>

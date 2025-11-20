@@ -1,5 +1,5 @@
+import { LongPressButtonProps } from "@/src/types/buttons";
 import { ReactNode, useRef, useState } from "react";
-import { LongPressButtonProps } from "./type";
 
 function Longpressbutton(props: LongPressButtonProps) {
   const {children, delay, handleFunction, className, timerRef} = props;

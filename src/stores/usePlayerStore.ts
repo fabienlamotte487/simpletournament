@@ -1,21 +1,6 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { Player } from '../types/player';
-
-type PlayerState = {
-  // State
-  players: Player[];
-  
-  // Actions
-  addPlayer: (pseudo: string) => void;
-  removePlayer: (id: string) => void;
-  updatePlayer: (id: string, updates: Partial<Player>) => void;
-  clearPlayers: () => void;
-  
-  // Selectors (optionnel, mais pratique)
-  getPlayerById: (id: string) => Player | undefined;
-  getSortedPlayers: () => Player[];
-}
+import { PlayerState } from '../types/player';
 
 export const usePlayerStore = create<PlayerState>()(
   devtools(

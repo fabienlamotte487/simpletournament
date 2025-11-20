@@ -1,4 +1,3 @@
-import { ClassNamesProps } from "@emotion/react";
 import { ReactNode } from "react";
 
 export type LongPressButtonProps = {
