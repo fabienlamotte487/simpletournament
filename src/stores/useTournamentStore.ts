@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { TournamentState } from '../types/tournament';
+import { Tournament, TournamentState } from '../types/tournament';
 
 export const useTournamentStore = create<TournamentState>()(
   devtools(
@@ -14,14 +14,20 @@ export const useTournamentStore = create<TournamentState>()(
                 created_at: Date.now(),
                 finished_at: null,
                 config: {
-                    roundDuration: 0,
-                    roundNumber: 0
+                  roundDuration: 0,
+                  roundNumber: 0
                 },
                 rounds: [],
                 players: players,
                 finalClassement: []
             }]
         })),
+
+        getCurrentTournament: (): Tournament | undefined => {
+          return get().tournaments.reduce<Tournament | undefined>((mostRecent, current) =>
+            !mostRecent || current.created_at > mostRecent.created_at ? current : mostRecent
+          , undefined);
+        },
       }),
       {
         name: 'mtg-tournament-tournaments', // LocalStorage key

@@ -19,7 +19,7 @@ function AllPlayers() {
     <>
       <div className="block flex justify-between items-center">
         <div>
-          <h2>Votre liste</h2>
+          <h2>Vos joueurs</h2>
           <p>{storedPlayer.length} joueurs</p>
         </div>
         <button className="btn-icon" onClick={() => setIsOpen(true)}><SearchIcon /></button>
