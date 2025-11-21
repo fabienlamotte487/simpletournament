@@ -5,5 +5,8 @@ export type LongPressButtonProps = {
   delay: number;
   handleFunction: Function;
   className?: string;
-  timerRef: NodeJS.Timeout | null;
+}
+
+export type LinkLaunchTournementProps = {
+  children: ReactNode;
 }

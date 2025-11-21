@@ -1,16 +1,16 @@
 "use client"
 import { Player } from "@/src/types/player"
-import ModeEditIcon from '@mui/icons-material/ModeEdit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import Longpressbutton from "@/src/ui/Buttons/LongPressButton/longpressbutton";
+import Longpressbutton from "@/src/ui/Buttons/longpressbutton";
 import { useEffect, useRef, useState } from "react";
 import { usePlayerStore } from "@/src/stores/usePlayerStore";
-import ClearIcon from '@mui/icons-material/Clear';
 import { registerPseudo } from "@/src/hooks/registerPseudo";
+import { ItemPlayerEditMode } from "./itemPlayerEditMode";
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const ItemPlayer = (props: Player) => {
-    const {id, pseudo} = props
-    const {removePlayer, updatePlayer} = usePlayerStore();
+    const {id, pseudo, currentPlayer} = props
+    const {removePlayer, updatePlayer, addUserIntoPlay} = usePlayerStore();
     const [pseudoEdited, setPseudoEdited] = useState(pseudo);
     const [editMode, setEditMode] = useState(false);
     const pseudoEditRef = useRef<HTMLInputElement>(null);
@@ -68,32 +68,27 @@ const ItemPlayer = (props: Player) => {
     }
 
     if(editMode){
-        return (
-            <li>
-                <form onSubmit={edit} className="itemPlayer">
-                    <div className="flex flex-col">
-                        <input 
-                            type="text"
-                            className='f-input w-100'
-                            id="pseudo-edit" 
-                            onChange={e => setPseudoEdited(e.target.value)}
-                            name="pseudo-edit"  
-                            ref={pseudoEditRef}
-                            value={pseudoEdited} />
-                        {errorMessage && <p className="error-message">{errorMessage}</p>}
-                    </div>
-                    <div className="flex gap-2">
-                        <button className="btn-icon" type="submit"><ModeEditIcon /></button>
-                        <button className="btn-icon" type="button" onClick={cancelEdit}><ClearIcon /></button>
-                    </div>
-                </form>
-            </li>
-        )
+        return <ItemPlayerEditMode
+            edit={edit}
+            setPseudoEdited={setPseudoEdited}
+            pseudoEditRef={pseudoEditRef}
+            pseudoEdited={pseudoEdited}
+            errorMessage={errorMessage}
+            cancelEdit={cancelEdit}
+        />
     }
 
     return (
         <li className="itemPlayer">
-            {pseudo}
+            {currentPlayer ? 
+                <div className="flex flex-col">
+                    {pseudo}
+                    <small className="italic">Déjà dans le tournoi</small>
+                </div>
+            : 
+                <button className="w-full text-left" type="button" onClick={() => addUserIntoPlay(id)}>
+                    {pseudo}
+                </button>}
             <div className="flex gap-2">
                 <button className="btn-icon" onClick={() => setEditMode(true)}><ModeEditIcon /></button>
                 <Longpressbutton

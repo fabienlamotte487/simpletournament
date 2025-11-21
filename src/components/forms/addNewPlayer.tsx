@@ -27,7 +27,7 @@ export default function AddNewPlayer() {
 
     return (
         <div className="block">
-            <h2 className="h2">Nouveau joueur</h2>
+            <h2>Nouveau joueur</h2>
             <form onSubmit={onSubmit}>
                 <InputText 
                     name='pseudo'

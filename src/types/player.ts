@@ -1,3 +1,5 @@
+import { Ref } from "react";
+
 export type Player = {
   id: string;
   pseudo: string;
@@ -9,19 +11,26 @@ export type Player = {
   gameLosses: number;
   opponentIds: string[];  // Liste des adversaires affrontés
   hasBye: boolean;
+  currentPlayer: boolean;
 }
 
 export type PlayerState = {
-  // State
   players: Player[];
-  
-  // Actions
   addPlayer: (pseudo: string) => void;
   removePlayer: (id: string) => void;
   updatePlayer: (id: string, updates: Partial<Player>) => void;
+  addUserIntoPlay: (id: string) => void; 
+  removePlayerFromPlay: (id: string) => void;
   clearPlayers: () => void;
-  
-  // Selectors (optionnel, mais pratique)
   getPlayerById: (id: string) => Player | undefined;
   getSortedPlayers: () => Player[];
+}
+
+export type itemPlayerEditMode = {
+  edit: Function;
+  setPseudoEdited: Function;
+  pseudoEditRef: Ref<HTMLInputElement>;
+  pseudoEdited: string;
+  errorMessage: string;
+  cancelEdit: Function;
 }

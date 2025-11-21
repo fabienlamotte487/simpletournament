@@ -20,13 +20,15 @@ export const usePlayerStore = create<PlayerState>()(
             gameLosses: 0,
             opponentIds: [],
             hasBye: false,
-            currentPlayer: true
+            currentPlayer: true,
           }]
         })),
         
         removePlayer: (id) => set((state) => ({
           players: state.players.filter(p => p.id !== id)
         })),
+
+        
         
         updatePlayer: (id, updates) => set((state) => ({
           players: state.players.map(p => 
@@ -34,19 +36,30 @@ export const usePlayerStore = create<PlayerState>()(
           )
         })),
         
+        addUserIntoPlay: (id) => set((state) => ({
+          players: state.players.map(p => (
+            p.id === id ? {...p, currentPlayer: true} : p
+          ))
+        })),
+
+        removePlayerFromPlay: (id) => set(state => ({
+          players: state.players.map(p => (
+            p.id === id ? {...p, currentPlayer: false} : p
+          ))
+        })),
+        
         clearPlayers: () => set({ players: [] }),
         
-        // Selectors
         getPlayerById: (id) => 
           get().players.find(p => p.id === id),
         
         getSortedPlayers: () => {
           const players = get().players;
-          // Tri par points puis tiebreakers
           return [...players].sort((a, b) => 
             b.matchPoints - a.matchPoints
           );
-        }
+        },
+
       }),
       {
         name: 'mtg-tournament-players', // LocalStorage key

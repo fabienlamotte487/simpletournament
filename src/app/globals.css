@@ -16,12 +16,12 @@ header{
 }
 
 /* typography */
-.h1 {
+h1 {
   @apply text-center text-3xl mb-3;
 }
 
-.h2 {
-  @apply text-left text-2xl underline;
+h2 {
+  @apply text-left text-2xl;
 }
 
 /* Formulaires */
@@ -34,7 +34,7 @@ header{
 }
 
 .f-input {
-  @apply bg-white border-0 outline-none text-black px-4 py-1 rounded-md;
+  @apply bg-gray-500 border-0 outline-none text-black px-4 py-1 rounded-md;
 }
 
 .error-message {
@@ -64,6 +64,10 @@ header{
   background-color: #b92a2a;
 }
 
+.linkLaunch {
+  @apply bg-amber-700 font-bold p-2 rounded;
+}
+
 /* MODAL */
 .modal {
   @apply fixed inset-0 z-50 flex items-center justify-center bg-black/75;
@@ -85,4 +89,8 @@ header{
 
 .itemPlayer:last-child {
   @apply border-0;
+}
+
+.itemPlayerTournament {
+  @apply flex items-center justify-between my-1 bg-gray-800 p-2 rounded;
 }
