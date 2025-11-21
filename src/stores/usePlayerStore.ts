@@ -28,8 +28,6 @@ export const usePlayerStore = create<PlayerState>()(
           players: state.players.filter(p => p.id !== id)
         })),
 
-        
-        
         updatePlayer: (id, updates) => set((state) => ({
           players: state.players.map(p => 
             p.id === id ? { ...p, ...updates } : p
@@ -52,14 +50,6 @@ export const usePlayerStore = create<PlayerState>()(
         
         getPlayerById: (id) => 
           get().players.find(p => p.id === id),
-        
-        getSortedPlayers: () => {
-          const players = get().players;
-          return [...players].sort((a, b) => 
-            b.matchPoints - a.matchPoints
-          );
-        },
-
       }),
       {
         name: 'mtg-tournament-players', // LocalStorage key

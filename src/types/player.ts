@@ -23,7 +23,6 @@ export type PlayerState = {
   removePlayerFromPlay: (id: string) => void;
   clearPlayers: () => void;
   getPlayerById: (id: string) => Player | undefined;
-  getSortedPlayers: () => Player[];
 }
 
 export type itemPlayerEditMode = {
