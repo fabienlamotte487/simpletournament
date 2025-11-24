@@ -1,9 +1,9 @@
 'use client'
-import InputText from '@/src/ui/inputText'
 import { useRef, useState } from 'react'
 import { checkInputValue, sanitizeInput } from '../../hooks/registerPseudo/rules';
 import { usePlayerStore } from '@/src/stores/usePlayerStore';
 import { registerPseudo } from '@/src/hooks/registerPseudo';
+import InputText from '@/src/ui/form/inputText';
 
 export default function AddNewPlayer() {
     const [pseudo, setPseudo] = useState("");
@@ -29,7 +29,7 @@ export default function AddNewPlayer() {
         <div className="block">
             <h2>Nouveau joueur</h2>
             <form onSubmit={onSubmit}>
-                <InputText 
+                <InputText
                     name='pseudo'
                     value={pseudo}
                     label='Entrez un pseudo:'

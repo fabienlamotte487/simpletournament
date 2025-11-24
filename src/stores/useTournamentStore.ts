@@ -8,14 +8,14 @@ export const useTournamentStore = create<TournamentState>()(
       (set, get) => ({
         tournaments: [],
         
-        addTournaments: (players) => set((state) => ({
+        addTournaments: (players, config) => set((state) => ({
             tournaments: [...state.tournaments, {
                 id: crypto.randomUUID(),
                 created_at: Date.now(),
                 finished_at: null,
                 config: {
-                  roundDuration: 0,
-                  roundNumber: 0
+                  roundDuration: config.roundDuration,
+                  roundNumber: config.roundNumber
                 },
                 rounds: [],
                 players: players,

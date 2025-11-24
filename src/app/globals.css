@@ -33,13 +33,29 @@ h2 {
   @apply mb-7;
 }
 
-.f-input {
+.f-input-text {
   @apply bg-gray-500 border-0 outline-none text-black px-4 py-1 rounded-md;
+}
+
+.f-input-number {
+  cursor: default;
+  @apply text-center font-bold text-4xl bg-red-400 w-full flex-1 h-20 outline-0;
+}
+
+.f-input-number-button {
+  transition: opacity .5s ease;
+  @apply text-center flex-2 bg-zinc-700;
+}
+
+.f-input-number-button:active {
+  opacity: 0.5;
 }
 
 .error-message {
   @apply text-red-500;
 }
+
+
 
 
 /* Boutons */

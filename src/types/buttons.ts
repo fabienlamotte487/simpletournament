@@ -9,4 +9,5 @@ export type LongPressButtonProps = {
 
 export type LinkLaunchTournementProps = {
   children: ReactNode;
+  link: string
 }

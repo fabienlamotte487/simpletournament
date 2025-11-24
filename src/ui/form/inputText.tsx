@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
-import { InputType } from "../types/form";
+import { InputTextType } from "../../types/form";
 
-const InputText = forwardRef<HTMLInputElement, InputType>((props, ref) => {
+const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
   const {value, label, name, setInput} = props;
 
   return (
@@ -9,7 +9,7 @@ const InputText = forwardRef<HTMLInputElement, InputType>((props, ref) => {
       {label && <label htmlFor={name} className='f-label'>{label}</label>}
       <input 
         type="text"
-        className='f-input'
+        className='f-input-text'
         id={name} 
         onChange={e => setInput(e.target.value)}
         name={name}  

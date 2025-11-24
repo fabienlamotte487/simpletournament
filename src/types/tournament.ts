@@ -18,5 +18,5 @@ export type Tournament = {
 
 export type TournamentState = {
   tournaments: Tournament[] | undefined;
-  addTournaments: (players: Player[]) => void;
+  addTournaments: (players: Player[], config: TournamentConfig) => void;
 }
