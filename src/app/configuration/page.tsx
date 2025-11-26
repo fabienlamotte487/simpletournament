@@ -3,7 +3,7 @@ import Backbutton from "@/src/ui/Buttons/backbutton"
 import ShapePage from "@/src/ui/page/ShapePage"
 
 function page() {
-    return <ShapePage>
+    return <ShapePage back>
         <Configuration />
     </ShapePage>
 }
