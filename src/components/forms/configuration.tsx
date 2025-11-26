@@ -78,7 +78,7 @@ function Configuration() {
             <InputNumber
                 label="Durée d'une manche"
                 value={duration}
-                range={10}
+                range={5}
                 min={30}
                 name="duration"
                 setInput={setDuration}
