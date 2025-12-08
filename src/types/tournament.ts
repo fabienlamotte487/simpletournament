@@ -1,5 +1,18 @@
 import { Timestamp } from "next/dist/server/lib/cache-handlers/types";
-import { Player } from "./player";
+
+export type TournamentPlayers = {
+  id: string;
+  pseudo: string;
+  currentPlayer: boolean;
+  matchPoints: number;
+  matchWins: number;
+  matchLosses: number;
+  matchDraw: number;
+  opponentIds: TournamentPlayers[];
+  hasBye: boolean;
+}
+
+export type TournamentPlayerPair = [TournamentPlayers, TournamentPlayers];
 
 export type TournamentConfig = {
   roundNumber: Number;
@@ -12,11 +25,12 @@ export type Tournament = {
   finished_at: Timestamp | null;
   config: TournamentConfig;
   rounds: [];
-  players: Player[];
-  finalClassement: Player[];
+  matchs: TournamentPlayerPair[];
+  finalClassement: TournamentPlayers[];
 }
 
 export type TournamentState = {
-  tournaments: Tournament[] | undefined;
-  addTournaments: (players: Player[], config: TournamentConfig) => void;
+  tournaments: Tournament[];
+  tournament: Tournament | null;
+  addTournaments: (tournament: Tournament) => void;
 }

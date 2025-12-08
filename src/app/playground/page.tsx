@@ -1,8 +1,14 @@
+import TournamentClassementPlayer from "@/src/components/lists/tournamentClassementPlayer/tournamentClassementPlayer"
+import Backbutton from "@/src/ui/Buttons/backbutton"
+import CountdownTimer from "@/src/ui/timer/CountdownTimer"
+import Timer from "@/src/ui/timer/CountdownTimer"
+
 function page() {
   return (
     <>
-      <h2>Déroulement du tournoi</h2>
-
+        <Backbutton />
+        <CountdownTimer initialMilliseconds={50*60*1000} />
+        <TournamentClassementPlayer />
     </>
   )
 }

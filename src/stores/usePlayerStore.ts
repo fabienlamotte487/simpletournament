@@ -12,14 +12,6 @@ export const usePlayerStore = create<PlayerState>()(
           players: [...state.players, {
             id: crypto.randomUUID(),
             pseudo,
-            matchPoints: 0,
-            matchWins: 0,
-            matchLosses: 0,
-            matchDraws: 0,
-            gameWins: 0,
-            gameLosses: 0,
-            opponentIds: [],
-            hasBye: false,
             currentPlayer: true,
           }]
         })),
@@ -50,8 +42,6 @@ export const usePlayerStore = create<PlayerState>()(
         
         getPlayerById: (id) => 
           get().players.find(p => p.id === id),
-
-        getGamers: () => get().players.filter(p => p.currentPlayer),
       }),
       {
         name: 'mtg-tournament-players', // LocalStorage key

@@ -7,27 +7,14 @@ export const useTournamentStore = create<TournamentState>()(
     persist(
       (set, get) => ({
         tournaments: [],
+        tournament: null,
         
-        addTournaments: (players, config) => set((state) => ({
-            tournaments: [...state.tournaments, {
-                id: crypto.randomUUID(),
-                created_at: Date.now(),
-                finished_at: null,
-                config: {
-                  roundDuration: config.roundDuration,
-                  roundNumber: config.roundNumber
-                },
-                rounds: [],
-                players: players,
-                finalClassement: []
-            }]
-        })),
-
-        getCurrentTournament: (): Tournament | undefined => {
-          return get().tournaments.reduce<Tournament | undefined>((mostRecent, current) =>
-            !mostRecent || current.created_at > mostRecent.created_at ? current : mostRecent
-          , undefined);
-        },
+        addTournaments: (tournament) => set((state) => {
+          return {
+            tournaments: [...state.tournaments, tournament],
+            tournament: tournament
+          }
+        }),
       }),
       {
         name: 'mtg-tournament-tournaments', // LocalStorage key

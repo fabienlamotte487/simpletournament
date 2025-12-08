@@ -6,7 +6,8 @@ import InputNumber from "@/src/ui/form/inputNumber";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { HOMEPAGE, PLAYGROUND } from "@/src/config/paths";
-import { shufflePlayers } from "@/src/hooks/shufflePlayers";
+import { shufflePlayers } from "@/src/hooks/preparePlayers/shufflePlayers";
+import { createTournament } from "@/src/hooks/manageTournament";
 
 function Configuration() {
     const [duration, setDuration] = useState<number>(50);
@@ -18,13 +19,7 @@ function Configuration() {
     const router = useRouter();
     const gamers = players.filter(p => p.currentPlayer);
 
-    useEffect(() => {
-        if(gamers.length === 0){
-            router.push(HOMEPAGE);
-        }
-    }, [gamers.length, router]);
-
-    function handleSubmit(e){
+    function handleSubmit(e:any){
         e.preventDefault();
         setIsSubmitting(true);
         let errorMessage:string[] = [];
@@ -46,13 +41,11 @@ function Configuration() {
                 return;
             }
 
-            addTournaments(
-                shufflePlayers(gamers),
-                {
-                    roundNumber: roundNumber,
-                    roundDuration: duration
-                }
-            );
+            createTournament(gamers, {
+                roundNumber: roundNumber,
+                roundDuration: duration
+            }, addTournaments);
+
             router.push(PLAYGROUND);
         } catch(e) {
             console.error(e);
@@ -61,7 +54,7 @@ function Configuration() {
     }
 
     if(gamers.length === 0){
-        return <div className="text-center">Redirection...</div>;
+        return <div className="text-center">En attente...</div>;
     }
 
     return (
