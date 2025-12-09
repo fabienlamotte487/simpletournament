@@ -4,7 +4,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 
 function InputNumber(props: InputNumberType) {
     const {name, setInput, value, label, range, min = 0, description, addClass, max} = props
-    const assembledClass = `${addClass} flex flex-col`;
+    const assembledClass = `${addClass ? addClass + " ": "" }flex flex-col`;
 
     function handleDecreaseValue(){
         if(value !== min){
