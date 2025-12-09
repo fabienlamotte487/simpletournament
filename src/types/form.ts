@@ -13,5 +13,6 @@ export type InputNumberType = {
   setInput: React.Dispatch<React.SetStateAction<number>>;
   range: number;
   min?: number;
+  max?: number;
   description?: string;
 }

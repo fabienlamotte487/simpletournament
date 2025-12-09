@@ -15,8 +15,8 @@ export type TournamentPlayers = {
 export type TournamentPlayerPair = [TournamentPlayers, TournamentPlayers];
 
 export type TournamentConfig = {
-  roundNumber: Number;
-  roundDuration: Number;
+  roundNumber: number;
+  roundDuration: number;
 }
 
 export type Tournament = {
@@ -33,4 +33,8 @@ export type TournamentState = {
   tournaments: Tournament[];
   tournament: Tournament | null;
   addTournaments: (tournament: Tournament) => void;
+}
+
+export type tournamentTableProps = {
+  match: TournamentPlayerPair
 }
