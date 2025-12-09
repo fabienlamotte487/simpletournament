@@ -3,7 +3,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveIcon from '@mui/icons-material/Remove';
 
 function InputNumber(props: InputNumberType) {
-    const {name, setInput, value, label, range, min, description, addClass} = props
+    const {name, setInput, value, label, range, min = 0, description, addClass, max} = props
     const assembledClass = `${addClass} flex flex-col`;
 
     function handleDecreaseValue(){
@@ -13,7 +13,9 @@ function InputNumber(props: InputNumberType) {
     }
 
     function handleIncreaseValue(){
-        setInput(value + range)
+        if(value !== max){
+            setInput(value + range)
+        }
     }
 
     return (
@@ -27,6 +29,7 @@ function InputNumber(props: InputNumberType) {
                     id={name} 
                     name={name}
                     min={min}
+                    max={max}
                     readOnly  
                     value={value} />
                 <button type="button" className="f-input-number-button" onClick={handleIncreaseValue}><AddCircleIcon /></button>
