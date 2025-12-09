@@ -16,7 +16,7 @@ function ItemTournamentTable(props:tournamentTableProps) {
                 <InputNumber 
                     value={pointPlayer1}
                     setInput={setPointPlayer1}
-                    name={`${player1.id}-score`}
+                    name={`${player1.pseudo}-score`}
                     range={1} 
                     max={2}
                 />
@@ -26,7 +26,7 @@ function ItemTournamentTable(props:tournamentTableProps) {
                 <InputNumber 
                     value={pointPlayer2}
                     setInput={setPointPlayer2}
-                    name={`${player2.id}-score`}
+                    name={`${player2.pseudo}-score`}
                     range={1} 
                     max={2}
                 />
