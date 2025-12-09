@@ -7,7 +7,6 @@ function page() {
   return (
     <>
         <Backbutton />
-        <CountdownTimer initialMilliseconds={50*60*1000} />
         <TournamentClassementPlayer />
     </>
   )
