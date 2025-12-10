@@ -11,7 +11,7 @@ function ItemTournamentTable(props:tournamentTableProps) {
 
     return (
         <div className='flex gap-2'>
-            <div>
+            <div className='w-full'>
                 {player1.pseudo}
                 <InputNumber 
                     value={pointPlayer1}
@@ -21,7 +21,7 @@ function ItemTournamentTable(props:tournamentTableProps) {
                     max={2}
                 />
             </div>
-            <div className='text-right'>
+            <div className='text-right w-full'>
                 {player2.pseudo}
                 <InputNumber 
                     value={pointPlayer2}
