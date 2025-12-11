@@ -33,7 +33,6 @@ export type TournamentState = {
   tournaments: Tournament[];
   tournament: Tournament | null;
   addTournament: (tournament: Tournament) => void;
-  pushRounds: (round: [], tournament: Tournament) => void;
   clearUnusedTournaments: () => void;
 }
 

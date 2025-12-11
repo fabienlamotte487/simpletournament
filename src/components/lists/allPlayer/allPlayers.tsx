@@ -5,7 +5,6 @@ import { useState } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import ItemPlayer from "./itemPlayer";
 import { sortBy } from "@/src/hooks/sortBy";
-import { useTournamentStore } from "@/src/stores/useTournamentStore";
 
 function AllPlayers() {
   const {players} = usePlayerStore();

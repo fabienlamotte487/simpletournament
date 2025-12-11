@@ -16,21 +16,6 @@ export const useTournamentStore = create<TournamentState>()(
           }
         }),
 
-        pushRounds: (round, tournament) => set((state) => {
-          const updatedTournament = 
-            {...tournament, 
-              rounds: [...tournament.rounds, round ]};
-
-          const updatedTournaments = 
-            state.tournaments.map(t => 
-              t.id === tournament.id ? updatedTournament : t);
-          
-          return {
-            tournaments: updatedTournaments,
-            tournament: updatedTournament
-          }
-        }),
-
         clearUnusedTournaments: () => set((state) => {
           const finishedTournaments = state.tournaments.filter(t => t.finished_at != null)
 
