@@ -34,6 +34,7 @@ export type TournamentState = {
   tournament: Tournament | null;
   addTournament: (tournament: Tournament) => void;
   pushRounds: (round: [], tournament: Tournament) => void;
+  clearUnusedTournaments: () => void;
 }
 
 export type tournamentTableProps = {

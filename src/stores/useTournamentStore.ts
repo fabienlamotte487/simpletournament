@@ -29,6 +29,15 @@ export const useTournamentStore = create<TournamentState>()(
             tournaments: updatedTournaments,
             tournament: updatedTournament
           }
+        }),
+
+        clearUnusedTournaments: () => set((state) => {
+          const finishedTournaments = state.tournaments.filter(t => t.finished_at != null)
+
+          return {
+            tournaments: finishedTournaments,
+            tournament: null
+          }
         })
       }),
       {
