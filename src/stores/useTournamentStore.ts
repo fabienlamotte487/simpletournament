@@ -15,6 +15,21 @@ export const useTournamentStore = create<TournamentState>()(
             tournament: tournament
           }
         }),
+
+        pushRounds: (round, tournament) => set((state) => {
+          const updatedTournament = 
+            {...tournament, 
+              rounds: [...tournament.rounds, round ]};
+
+          const updatedTournaments = 
+            state.tournaments.map(t => 
+              t.id === tournament.id ? updatedTournament : t);
+          
+          return {
+            tournaments: updatedTournaments,
+            tournament: updatedTournament
+          }
+        })
       }),
       {
         name: 'mtg-tournament-tournaments', // LocalStorage key

@@ -1,8 +1,7 @@
 import { TournamentPlayers } from "@/src/types/tournament";
-import { Player } from "../../types/player";
 
 // Formation du tableau d'appairage sans calcul des points (première ronde du tournoi)
-export const blank_apairying = (players: TournamentPlayers[]) => {
+export const blank_apairying = (players: []) => {
     const tournamentPlayers = [];
 
     for(let x = 0; x < players.length; x+=2){

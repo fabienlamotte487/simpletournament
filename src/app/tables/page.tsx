@@ -1,8 +1,8 @@
 "use client"
 
 import Tables from "@/src/components/lists/tournamentTable/Tables"
-import { CLASSEMENT, PLAYGROUND } from "@/src/config/paths";
-import { checkScore, formatScores } from "@/src/hooks/manageScore";
+import { checkScore } from "@/src/hooks/manageScore";
+import { prepareData } from "@/src/hooks/manageScore/prepareData";
 import { useTournamentStore } from "@/src/stores/useTournamentStore";
 import CountdownTimer from "@/src/ui/timer/CountdownTimer";
 import { useRouter } from "next/navigation";
@@ -22,6 +22,7 @@ function page() {
   const onSubmit = (e) => {
     e.preventDefault();
     setErrorMessage("");
+
     const formData = new FormData(e.currentTarget);
     const values = Object.fromEntries(formData.entries());
     const {isValid, message, data} = checkScore(values)
@@ -31,12 +32,14 @@ function page() {
       return;
     }
 
-    if(isFinalRound){
-      router.push(CLASSEMENT);
-      return;
-    }
+    const {roundSaved, playersUpdated} = prepareData(tournament.matchs, data);
 
-    router.push(PLAYGROUND);
+    // if(isFinalRound){
+    //   router.push(CLASSEMENT);
+    //   return;
+    // }
+
+    // router.push(PLAYGROUND);
   }
 
   return (

@@ -26,13 +26,14 @@ export type Tournament = {
   config: TournamentConfig;
   rounds: [];
   matchs: TournamentPlayerPair[];
-  finalClassement: TournamentPlayers[];
+  players: TournamentPlayers[];
 }
 
 export type TournamentState = {
   tournaments: Tournament[];
   tournament: Tournament | null;
   addTournaments: (tournament: Tournament) => void;
+  pushRounds: (round: [], tournament: Tournament) => void;
 }
 
 export type tournamentTableProps = {
@@ -46,13 +47,8 @@ export interface Player {
     score: number;
 }
 
-export interface MatchResult {
-    player: string;
-    scoreToAdd: number;
-}
-
 export interface CheckResult {
     isValid: boolean;
     message: string;
-    data: MatchResult[];
+    data: [];
 }

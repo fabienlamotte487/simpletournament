@@ -1,5 +1,6 @@
 import { SCORE_CONFIG } from "@/src/config/score";
 import { CheckResult, Player, ScoresObject } from "@/src/types/tournament";
+import { blank_apairying } from "../preparePlayers/apairying";
 
 export const checkScore = (scores: ScoresObject) => {
     let restructuredMatch = formatScores(scores);
@@ -27,8 +28,8 @@ const formatPlayerScore = (score: [string, string | FormDataEntryValue]) => {
     }
 }
 
-const checkMatchs = (matchs: [Player, Player][]):CheckResult => {
-    const data = [];
+const checkMatchs = (matchs: [Player, Player][]) => {
+    const data = <any>[];
 
     for (const [p1, p2] of matchs) {
         const s1 = p1.score;
@@ -47,13 +48,16 @@ const checkMatchs = (matchs: [Player, Player][]):CheckResult => {
 
         // Attribution directe sans variables intermédiaires
         if (s1 === s2) {
-            data.push({ player: p1.playerId, scoreToAdd: SCORE_CONFIG.TIE }, { player: p2.playerId, scoreToAdd: SCORE_CONFIG.TIE });
+            data[p1.playerId] = SCORE_CONFIG.TIE;
+            data[p2.playerId] = SCORE_CONFIG.TIE;
         } else if (s1 > s2) {
-            data.push({ player: p1.playerId, scoreToAdd: SCORE_CONFIG.VICTORY }, { player: p2.playerId, scoreToAdd: SCORE_CONFIG.LOSS });
+            data[p1.playerId] = SCORE_CONFIG.VICTORY;
+            data[p2.playerId] = SCORE_CONFIG.LOSS;
         } else {
-            data.push({ player: p1.playerId, scoreToAdd: SCORE_CONFIG.LOSS }, { player: p2.playerId, scoreToAdd: SCORE_CONFIG.VICTORY });
+            data[p1.playerId] = SCORE_CONFIG.LOSS;
+            data[p2.playerId] = SCORE_CONFIG.VICTORY;
         }
     }
 
-    return { isValid: true, message: "", data };
+    return { isValid: true, message: "", data};
 };
