@@ -8,7 +8,7 @@ import InputText from '@/src/ui/form/inputText';
 export default function AddNewPlayer() {
     const [pseudo, setPseudo] = useState("");
     const [error, setError] = useState("");
-    const {addPlayer} = usePlayerStore();
+    const {addNewPlayer} = usePlayerStore();
     const ref = useRef<HTMLInputElement>(null);
 
     function onSubmit(e:any){
@@ -19,7 +19,7 @@ export default function AddNewPlayer() {
         setError(response.message);
 
         if(response.isValid){
-            addPlayer(response.value);
+            addNewPlayer(response.value);
             setPseudo("");
             ref.current?.focus()
         }

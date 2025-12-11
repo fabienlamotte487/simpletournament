@@ -8,7 +8,7 @@ export const usePlayerStore = create<PlayerState>()(
       (set, get) => ({
         players: [],
         
-        addPlayer: (pseudo) => set((state) => ({
+        addNewPlayer: (pseudo) => set((state) => ({
           players: [...state.players, {
             id: crypto.randomUUID(),
             pseudo,
