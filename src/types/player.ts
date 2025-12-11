@@ -9,7 +9,7 @@ export type Player = {
 export type PlayerState = {
   players: Player[];
   addNewPlayer: (pseudo: string) => void;
-  removePlayer: (id: string) => void;
+  deletePlayer: (id: string) => void;
   updatePlayer: (id: string, updates: Partial<Player>) => void;
   addPlayer: (id: string) => void; 
   removePlayerFromPlay: (id: string) => void;

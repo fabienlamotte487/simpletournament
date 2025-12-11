@@ -10,7 +10,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 const ItemPlayer = (props: Player) => {
     const {id, pseudo, currentPlayer} = props
-    const {removePlayer, updatePlayer, addPlayer} = usePlayerStore();
+    const {deletePlayer, updatePlayer, addPlayer} = usePlayerStore();
     const [pseudoEdited, setPseudoEdited] = useState(pseudo);
     const [editMode, setEditMode] = useState(false);
     const pseudoEditRef = useRef<HTMLInputElement>(null);
@@ -64,7 +64,7 @@ const ItemPlayer = (props: Player) => {
     }
 
     const suppress = () => {
-        removePlayer(id)
+        deletePlayer(id)
     }
 
     if(editMode){

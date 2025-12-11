@@ -16,7 +16,7 @@ export const usePlayerStore = create<PlayerState>()(
           }]
         })),
         
-        removePlayer: (id) => set((state) => ({
+        deletePlayer: (id) => set((state) => ({
           players: state.players.filter(p => p.id !== id)
         })),
 
