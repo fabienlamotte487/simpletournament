@@ -1,7 +1,7 @@
 import { Player } from "@/src/types/player";
-import { TournamentPlayers } from "@/src/types/tournament";
+import { TournamentPlayer } from "@/src/types/tournament";
 
-export const formatPlayer = (player: Player):TournamentPlayers => {
+export const formatPlayer = (player: Player):TournamentPlayer => {
     return {
         id: player.id,
         pseudo: player.pseudo,
