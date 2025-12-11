@@ -26,7 +26,7 @@ export const usePlayerStore = create<PlayerState>()(
           )
         })),
         
-        addUserIntoPlay: (id) => set((state) => ({
+        addPlayer: (id) => set((state) => ({
           players: state.players.map(p => (
             p.id === id ? {...p, currentPlayer: true} : p
           ))

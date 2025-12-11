@@ -10,7 +10,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 const ItemPlayer = (props: Player) => {
     const {id, pseudo, currentPlayer} = props
-    const {removePlayer, updatePlayer, addUserIntoPlay} = usePlayerStore();
+    const {removePlayer, updatePlayer, addPlayer} = usePlayerStore();
     const [pseudoEdited, setPseudoEdited] = useState(pseudo);
     const [editMode, setEditMode] = useState(false);
     const pseudoEditRef = useRef<HTMLInputElement>(null);
@@ -86,7 +86,7 @@ const ItemPlayer = (props: Player) => {
                     <small className="italic">Déjà dans le tournoi</small>
                 </div>
             : 
-                <button className="w-full text-left" type="button" onClick={() => addUserIntoPlay(id)}>
+                <button className="w-full text-left" type="button" onClick={() => addPlayer(id)}>
                     {pseudo}
                 </button>}
             <div className="flex gap-2">
