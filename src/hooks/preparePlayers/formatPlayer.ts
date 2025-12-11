@@ -1,10 +1,10 @@
 import { Player } from "@/src/types/player";
+import { TournamentPlayers } from "@/src/types/tournament";
 
-export const formatPlayer = (player: Player) => {
+export const formatPlayer = (player: Player):TournamentPlayers => {
     return {
         id: player.id,
         pseudo: player.pseudo,
-        currentPlayer: player.currentPlayer,
         matchPoints: 0,
         matchWins: 0,
         matchLosses: 0,

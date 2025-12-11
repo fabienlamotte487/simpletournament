@@ -1,7 +1,7 @@
-import { TournamentPlayers } from "@/src/types/tournament";
+import { PlayerMatch, TournamentPlayers } from "@/src/types/tournament";
 
 // Formation du tableau d'appairage sans calcul des points (première ronde du tournoi)
-export const blank_apairying = (players: []) => {
+export const blank_apairying = (players: PlayerMatch[]) => {
     const tournamentPlayers = [];
 
     for(let x = 0; x < players.length; x+=2){
@@ -15,7 +15,7 @@ export const blank_apairying = (players: []) => {
 }
 
 // Formation du tableau d'appairage avec calcul des points (première ronde du tournoi)
-export const apairying = (players: TournamentPlayers[]) => {
+export const apairying = (players: PlayerMatch[]) => {
     const tournamentPlayers = [...players];
 
     return tournamentPlayers;
