@@ -14,7 +14,7 @@ function Configuration() {
     const [errors, setErrors] = useState<string[]>([]);
     const [roundNumber, setRoundNumber] = useState<number>(3);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-    const {addTournaments} = useTournamentStore();
+    const {addTournament} = useTournamentStore();
     const {players} = usePlayerStore();
     const router = useRouter();
     const gamers = players.filter(p => p.currentPlayer);
@@ -44,7 +44,7 @@ function Configuration() {
             createTournament(gamers, {
                 roundNumber: roundNumber,
                 roundDuration: duration
-            }, addTournaments);
+            }, addTournament);
 
             router.push(PLAYGROUND);
         } catch(e) {

@@ -9,7 +9,7 @@ export const useTournamentStore = create<TournamentState>()(
         tournaments: [],
         tournament: null,
         
-        addTournaments: (tournament) => set((state) => {
+        addTournament: (tournament) => set((state) => {
           return {
             tournaments: [...state.tournaments, tournament],
             tournament: tournament
