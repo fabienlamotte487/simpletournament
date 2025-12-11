@@ -39,9 +39,6 @@ export const usePlayerStore = create<PlayerState>()(
         })),
         
         clearPlayers: () => set({ players: [] }),
-        
-        getPlayerById: (id) => 
-          get().players.find(p => p.id === id),
       }),
       {
         name: 'mtg-tournament-players', // LocalStorage key

@@ -14,7 +14,6 @@ export type PlayerState = {
   addPlayer: (id: string) => void; 
   removePlayerFromPlay: (id: string) => void;
   clearPlayers: () => void;
-  getPlayerById: (id: string) => Player | undefined;
 }
 
 export type itemPlayerEditMode = {
