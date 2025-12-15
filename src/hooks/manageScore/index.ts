@@ -1,6 +1,5 @@
 import { SCORE_CONFIG } from "@/src/config/score";
-import { CheckResult, Player, ScoresObject } from "@/src/types/tournament";
-import { blank_apairying } from "../preparePlayers/apairying";
+import { Player, ScoresObject } from "@/src/types/tournament";
 
 export const checkScore = (scores: ScoresObject) => {
     let restructuredMatch = formatScores(scores);

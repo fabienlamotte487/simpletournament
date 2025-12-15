@@ -1,7 +1,7 @@
-import { TournamentPlayers } from '@/src/types/tournament';
+import { TournamentPlayerPair } from '@/src/types/tournament';
 import Image from 'next/image';
 
-function ItemTournamentClassementPlayer(props: [TournamentPlayers, TournamentPlayers]) {
+function ItemTournamentClassementPlayer(props: TournamentPlayerPair) {
   const player1 = props[0];
   const player2 = props[1];
 

@@ -36,17 +36,17 @@ export type tournamentTableProps = {
   match: TournamentPlayerPair
 }
 
-export type ScoresObject = [string, string |number];
+export type ScoresObject = [string, string | number];
 
 export interface Player {
-    playerId: string;
-    score: number;
+  playerId: string;
+  score: number;
 }
 
 export interface CheckResult {
-    isValid: boolean;
-    message: string;
-    data: [];
+  isValid: boolean;
+  message: string;
+  data: [];
 }
 
 export type TournamentPlayerPair = [TournamentPlayer, TournamentPlayer];
