@@ -1,8 +1,8 @@
 "use client"
-
 import Tables from "@/src/components/lists/tournamentTable/Tables"
 import { checkScore } from "@/src/hooks/manageScore";
 import { prepareData } from "@/src/hooks/manageScore/prepareData";
+import { blank_apairying } from "@/src/hooks/preparePlayers/apairying";
 import { useTournamentStore } from "@/src/stores/useTournamentStore";
 import CountdownTimer from "@/src/ui/timer/CountdownTimer";
 import { useRouter } from "next/navigation";
@@ -10,11 +10,11 @@ import { useState } from "react";
 
 function page() {
   const {tournament} = useTournamentStore();
-  const router = useRouter()
   const [errorMessage, setErrorMessage] = useState("");
-  if(!tournament){
+  if(!tournament || tournament.players.length === 0){
     return null;
   }
+  const matchs = blank_apairying(tournament.players);
   
   const milliseconds = tournament?.config.roundDuration * 60 * 1000;
   const isFinalRound = tournament.rounds.length + 1 === tournament.config.roundNumber
@@ -22,6 +22,7 @@ function page() {
   const onSubmit = (e) => {
     e.preventDefault();
     setErrorMessage("");
+
 
     const formData = new FormData(e.currentTarget);
     const values = Object.fromEntries(formData.entries());
@@ -32,8 +33,7 @@ function page() {
       return;
     }
 
-    const {roundSaved, playersUpdated} = prepareData(tournament.matchs, data);
-
+    const {playersUpdated} = prepareData(matchs, data);
     // if(isFinalRound){
     //   router.push(CLASSEMENT);
     //   return;

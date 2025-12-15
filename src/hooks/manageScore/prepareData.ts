@@ -1,21 +1,21 @@
 import { SCORE_CONFIG } from "@/src/config/score";
-import { TournamentPlayerPair, TournamentPlayers } from "@/src/types/tournament";
+import { Player, TournamentPlayer, TournamentPlayerPair } from "@/src/types/tournament";
 
-export const prepareData = (matchs: [TournamentPlayerPair], result: []) => {
-    let playersUpdated = [];
-    let roundSaved = [];
+export const prepareData = (matchs: TournamentPlayerPair, result: []) => {
+    let playersUpdated = <TournamentPlayerPair[]>[];
     
     for(const [p1, p2] of matchs){
         let player1 = attributePoints(p1, p2, result);
         let player2 = attributePoints(p2, p1, result);
 
-        roundSaved.push([player1, player2]);
+        playersUpdated.push(player1, player2);
     }
+    
 
-    return {roundSaved, playersUpdated};
+    return {playersUpdated};
 }
 
-const attributePoints = (player: TournamentPlayers, opponent: TournamentPlayers, result: []) => {
+const attributePoints = (player: TournamentPlayer, opponent: TournamentPlayer, result: []) => {
     if(player === null){
         return;
     }
@@ -29,18 +29,11 @@ const attributePoints = (player: TournamentPlayers, opponent: TournamentPlayers,
 
     player.matchPoints += result[player.pseudo];
     player.opponentIds.push(opponent);
-    let results = result[player.pseudo];
 
-    if(results === 0){
-        player.matchLosses++;
-    }
-
-    if(results === 1){
-        player.matchDraw++;
-    }
-
-    if(results === 3){
-        player.matchWins;
+    switch(result[player.pseudo]){
+        case 0: player.matchLosses++; break;
+        case 1: player.matchDraw++; break;
+        case 3: player.matchWins++; break;
     }
 
     return player;
