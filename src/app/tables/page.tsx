@@ -1,5 +1,6 @@
 "use client"
 import Tables from "@/src/components/lists/tournamentTable/Tables"
+import { CLASSEMENT, PLAYGROUND } from "@/src/config/paths";
 import { checkScore } from "@/src/hooks/manageScore";
 import { prepareData } from "@/src/hooks/manageScore/prepareData";
 import { blank_apairying } from "@/src/hooks/preparePlayers/apairying";
@@ -9,15 +10,16 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 function page() {
-  const {tournament} = useTournamentStore();
+  const {tournament, updateTournament} = useTournamentStore();
   const [errorMessage, setErrorMessage] = useState("");
+  const router = useRouter()
   if(!tournament || tournament.players.length === 0){
     return null;
   }
   const matchs = blank_apairying(tournament.players);
   
   const milliseconds = tournament?.config.roundDuration * 60 * 1000;
-  const isFinalRound = tournament.rounds.length + 1 === tournament.config.roundNumber
+  const isFinalRound = tournament.rounds.length+1 === tournament.config.roundNumber
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -33,13 +35,16 @@ function page() {
       return;
     }
 
-    const {playersUpdated} = prepareData(matchs, data);
-    // if(isFinalRound){
-    //   router.push(CLASSEMENT);
-    //   return;
-    // }
+    const players = prepareData(matchs, data);
+    players.rounds = [...tournament.rounds, matchs];
+    updateTournament(tournament, players);
 
-    // router.push(PLAYGROUND);
+    if(isFinalRound){
+      router.push(CLASSEMENT);
+      return;
+    }
+
+    router.push(PLAYGROUND);
   }
 
   return (

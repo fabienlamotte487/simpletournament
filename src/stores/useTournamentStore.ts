@@ -23,6 +23,17 @@ export const useTournamentStore = create<TournamentState>()(
             tournaments: finishedTournaments,
             tournament: null
           }
+        }),
+
+        updateTournament: (tournament, data) => set((state) => {
+          const tournamentToUpdate = { ...tournament, ...data };
+
+          return {
+            tournaments: state.tournaments.map(t => 
+              t.id === tournament.id ? tournamentToUpdate : t
+            ),
+            tournament: tournamentToUpdate
+          }
         })
       }),
       {

@@ -7,7 +7,7 @@ export type TournamentPlayer = {
   matchWins: number;
   matchLosses: number;
   matchDraw: number;
-  opponentIds: TournamentPlayer[];
+  opponentIds: string;
   hasBye: boolean;
 }
 
@@ -30,6 +30,7 @@ export type TournamentState = {
   tournament: Tournament | null;
   addTournament: (tournament: Tournament) => void;
   clearUnusedTournaments: () => void;
+  updateTournament: (tournament: Tournament, data: any) => void;
 }
 
 export type tournamentTableProps = {
