@@ -2,7 +2,7 @@
 
 import { useTournamentStore } from "@/src/stores/useTournamentStore";
 import ItemTournamentClassementPlayer from "./itemTournamentClassementPlayer";
-import { blank_apairying } from "@/src/hooks/preparePlayers/apairying";
+import { apairying } from "@/src/hooks/preparePlayers/apairying";
 
 function TournamentClassementPlayer() {
     const {tournament} = useTournamentStore();
@@ -10,8 +10,8 @@ function TournamentClassementPlayer() {
         return null;
     }
 
-    const matchs = blank_apairying(tournament.players);
-    
+    const matchs = apairying(tournament.players);
+
     return (
         <div className='tab'>
             <div className='tab-header'>

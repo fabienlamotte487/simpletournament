@@ -3,10 +3,9 @@
 import { usePlayerStore } from "@/src/stores/usePlayerStore";
 import { useTournamentStore } from "@/src/stores/useTournamentStore";
 import InputNumber from "@/src/ui/form/inputNumber";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { HOMEPAGE, PLAYGROUND } from "@/src/config/paths";
-import { shufflePlayers } from "@/src/hooks/preparePlayers/shufflePlayers";
+import { PLAYGROUND } from "@/src/config/paths";
 import { createTournament } from "@/src/hooks/manageTournament";
 
 function Configuration() {

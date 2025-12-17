@@ -7,7 +7,7 @@ export type TournamentPlayer = {
   matchWins: number;
   matchLosses: number;
   matchDraw: number;
-  opponentIds: string;
+  opponentIds: string[];
   hasBye: boolean;
 }
 

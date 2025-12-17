@@ -20,7 +20,8 @@ export const formatScores = (scores: ScoresObject) => {
     return result
 }
 
-const formatPlayerScore = (score: [string, string | FormDataEntryValue]) => {
+const formatPlayerScore = (score: [string, string | number]) => {
+    
     return {
         playerId: score[0].split("-")[0],
         score: parseInt(score[1] as string, 10)
