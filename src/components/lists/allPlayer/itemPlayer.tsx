@@ -89,10 +89,10 @@ const ItemPlayer = (props: Player) => {
                 <button className="w-full text-left" type="button" onClick={() => addPlayer(id)}>
                     {pseudo}
                 </button>}
-            <div className="flex gap-2">
+            <div className="flex">
                 <button className="btn-icon" onClick={() => setEditMode(true)}><ModeEditIcon /></button>
                 <Longpressbutton
-                    className="btn-icon danger" 
+                    className="btn-icon" 
                     delay={500}
                     handleFunction={suppress}>
                     <DeleteIcon />

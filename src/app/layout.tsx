@@ -1,11 +1,16 @@
 import "./globals.css";
+import { Kantumruy_Pro } from "next/font/google";
+
+const font = Kantumruy_Pro({
+  subsets: ['latin'],
+});
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
     <html lang="fr">
-      <body className="py-2 px-5">
+      <body className={`${font.className} py-2`}>
         <header>
-          <h1>Suisse tournament</h1>
+          <h1>Mythic Tournament</h1>
         </header> 
         <main>
           {children}

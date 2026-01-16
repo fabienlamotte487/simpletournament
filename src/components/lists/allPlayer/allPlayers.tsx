@@ -22,13 +22,14 @@ function AllPlayers() {
           <h2>Vos joueurs</h2>
           <p>{storedPlayer.length} joueurs</p>
         </div>
-        <button className="btn-icon" onClick={() => setIsOpen(true)}><SearchIcon /></button>
+        <button className="btn-icon cercled" onClick={() => setIsOpen(true)}><SearchIcon sx={{ fontSize: 20 }} /></button>
       </div>
       <Modal
         isOpen={isOpen} 
         onClose={() => setIsOpen(false)}
         title="Liste des joueurs">
         <ul className="listPlayer">
+          <p className="info">Cliquez sur un pseudo pour l'ajouter au tournoi</p>
           {storedPlayer.map(player => <ItemPlayer key={player.id} {...player} /> )}
         </ul>
       </Modal>

@@ -11,7 +11,7 @@ export default function Home() {
       <AllPlayers />
       <AddNewPlayer />
       <TournamentPlayers />
-      <LinkLaunchTournament link={CONFIGURATION}>On passe à la configuration !</LinkLaunchTournament>
+      <LinkLaunchTournament link={CONFIGURATION}>Débuter le tournoi</LinkLaunchTournament>
     </ShapePage>
   );
 }

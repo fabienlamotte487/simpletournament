@@ -1,5 +1,6 @@
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import ClearIcon from '@mui/icons-material/Clear';
+import CheckIcon from '@mui/icons-material/Check';
 import { itemPlayerEditMode } from '@/src/types/player';
 
 export const ItemPlayerEditMode = (props: itemPlayerEditMode) => {
@@ -11,7 +12,7 @@ export const ItemPlayerEditMode = (props: itemPlayerEditMode) => {
                 <div className="flex flex-col">
                     <input 
                         type="text"
-                        className='f-input w-full'
+                        className='f-input-text w-full'
                         id="pseudo-edit" 
                         onChange={e => setPseudoEdited(e.target.value)}
                         name="pseudo-edit"  
@@ -19,8 +20,8 @@ export const ItemPlayerEditMode = (props: itemPlayerEditMode) => {
                         value={pseudoEdited} />
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                 </div>
-                <div className="flex gap-2">
-                    <button className="btn-icon" type="submit"><ModeEditIcon /></button>
+                <div className="flex">
+                    <button className="btn-icon" type="submit"><CheckIcon /></button>
                     <button className="btn-icon" type="button" onClick={() => cancelEdit()}><ClearIcon /></button>
                 </div>
             </form>

@@ -1,27 +1,41 @@
 @import "tailwindcss";
 
+:root{
+  --primary: #5F1108;
+  --secondary: #FD250D;
+  --white: #D9DADE;
+  --success: #308C24;
+}
+
 body {
-  background: #151515;
+  background: var(--primary);
   color: white;
-  font-family: Inter, sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /* GROS BLOCKS */
-header{
-  @apply mb-5;
-}
-
 .block {
-  @apply my-3 bg-zinc-800 p-5 rounded-lg;
+  background: var(--secondary);
+  padding: 10px;
+  @apply my-3 rounded-lg;
 }
 
 /* typography */
 h1 {
-  @apply text-center text-3xl mb-3;
+  font-size: 32px;
+  font-weight: 500;
+  @apply text-center mb-3;
 }
 
 h2 {
-  @apply text-left text-2xl;
+  font-size: 20px;
+  font-weight: 500;
+  @apply text-left;
+}
+
+p{
+  font-size: 16px;
 }
 
 /* Formulaires */
@@ -30,11 +44,13 @@ h2 {
 }
 
 .f-label {
+  font-size: 16px;
   @apply mb-7;
 }
 
 .f-input-text {
-  @apply bg-gray-500 border-0 outline-none text-black px-4 py-1 rounded-md;
+  background: var(--white);
+  @apply border-0 outline-none text-black px-2 py-1 rounded-md;
 }
 
 .f-input-number {
@@ -55,21 +71,21 @@ h2 {
   @apply text-red-500;
 }
 
-
-
-
 /* Boutons */
 .btn {
-  @apply text-white bg-green-700 px-4 py-1 rounded-lg;
+  background-color: var(--success);
+  @apply text-white px-4 py-1 rounded-lg;
 }
 
 .btn-icon {
-  height: 40px;
-  width: 40px;
-  border-radius: 40px;
-  background-color: #151515;
   cursor: pointer;
   transition: opacity .3s ease;
+}
+
+.btn-icon.cercled{
+  border-radius: 100%;
+  padding: 5px;
+  border: 3px solid var(--white);
 }
 
 .btn-icon:hover, .btn-icon:active {
@@ -81,7 +97,8 @@ h2 {
 }
 
 .linkLaunch {
-  @apply bg-amber-700 font-bold p-2 rounded;
+  background: var(--success);
+  @apply p-2 rounded;
 }
 
 /* MODAL */
@@ -90,17 +107,39 @@ h2 {
 }
 
 .modal-body {
-  background-color: #242323;
+  background: var(--white);
   @apply rounded-lg shadow-xl max-w-md w-full mx-4 p-6;
+}
+
+.modal-body h2 {
+  color: var(--primary);
+  font-weight: bold;
 }
 
 /* Player */
 .listPlayer {
   height: 350px;
+  background: var(--primary);
+  border-radius: 7;
+  padding: 16px 16px 33px 16px;
   @apply overflow-scroll;
 }
+
+.listPlayer .info{
+  margin-bottom: 16px;
+  font-size: 11px;
+  font-style: italic;
+}
+
+.listPlayer .itemPlayer{
+  border-radius: 7px;
+  margin-bottom: 10px;
+  padding: 14px 10px;
+}
+
 .itemPlayer {
-  @apply flex justify-between py-3 border-b items-center px-2;
+  background: var(--secondary);
+  @apply flex justify-between py-3 items-center px-2;
 }
 
 .itemPlayer:last-child {
@@ -108,7 +147,9 @@ h2 {
 }
 
 .itemPlayerTournament {
-  @apply flex items-center justify-between my-1 bg-gray-800 p-2 rounded;
+  background: var(--primary);
+  padding: 14px 10px;
+  @apply flex items-center justify-between my-1 rounded;
 }
 
 

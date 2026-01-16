@@ -13,8 +13,12 @@ function TournamentPlayers() {
     }
     
     return (
-        <div>
-            <h2>{tournamentPlayers.length} participant{tournamentPlayers.length > 1 ? "s" : ""}</h2>
+        <div className="block">
+            <h2>Liste des participants</h2>
+            <p>{tournamentPlayers.length} participant{tournamentPlayers.length > 1 ? "s" : ""}</p>
+            <div className="pt-2 pb-1">
+                <hr></hr>
+            </div>
             <ul>
                 {tournamentPlayers.map(p => <ItemTournamentPlayers key={p.id} {...p} />)}
             </ul>

@@ -6,7 +6,7 @@ const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
 
   return (
     <div className='f-group'>
-      {label && <label htmlFor={name} className='f-label'>{label}</label>}
+      {label && <label htmlFor={name} className='f-label mr-1'>{label}</label>}
       <input 
         type="text"
         className='f-input-text'

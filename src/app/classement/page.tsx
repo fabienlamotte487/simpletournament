@@ -1,6 +1,8 @@
 function page() {
   return (
-    <div>Classement final</div>
+    <>
+      
+    </>
   )
 }
 
