@@ -3,6 +3,7 @@ export type InputTextType = {
   label?: string;
   name: string;
   setInput: React.Dispatch<React.SetStateAction<string>>;
+  deletable?: boolean;
 }
 
 export type InputNumberType = {

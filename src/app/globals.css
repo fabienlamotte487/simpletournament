@@ -55,7 +55,6 @@ p{
 
 .f-label {
   font-size: 16px;
-  @apply mb-7;
 }
 
 .f-input-text {
