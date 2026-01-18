@@ -1,11 +1,10 @@
 import { InputNumberType } from "@/src/types/form"
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import RemoveIcon from '@mui/icons-material/Remove';
+import ArrowLeftRoundedIcon from '@mui/icons-material/ArrowLeftRounded';
+import ArrowRightRoundedIcon from '@mui/icons-material/ArrowRightRounded';
 
 function InputNumber(props: InputNumberType) {
-    const {name, setInput, value, label, range, min = 0, description, addClass, max} = props
-    const assembledClass = `${addClass ? addClass + " ": "" }flex flex-col`;
-
+    const {icon, name, setInput, value, range, min = 0, max} = props
+    
     function handleDecreaseValue(){
         if(value !== min){
             setInput(value - range)
@@ -19,22 +18,21 @@ function InputNumber(props: InputNumberType) {
     }
 
     return (
-        <div className={assembledClass}>
-            {label && <label className="text-center my-5" htmlFor={name}>{label}</label>}
-            <div className="flex">
-                <button type="button" className="f-input-number-button" onClick={handleDecreaseValue}><RemoveIcon /></button>
-                <input 
-                    type="number"
-                    className='f-input-number'
-                    id={name} 
-                    name={name}
-                    min={min}
-                    max={max}
-                    readOnly  
-                    value={value} />
-                <button type="button" className="f-input-number-button" onClick={handleIncreaseValue}><AddCircleIcon /></button>
-            </div>
-            {description && <small className="text-center">{description}</small>}
+        <div className="items-center flex">
+            {icon()}
+            <button type="button" className="f-input-number-button" onClick={handleDecreaseValue}><ArrowLeftRoundedIcon sx={{ fontSize: 25 }} /></button>
+            <input
+                type="number"
+                className='f-input-number'
+                id={name} 
+                name={name}
+                hidden
+                min={min}
+                max={max}
+                readOnly
+                value={value} />
+            <p>{value}</p>
+            <button type="button" className="f-input-number-button" onClick={handleIncreaseValue}><ArrowRightRoundedIcon sx={{ fontSize: 25 }} /></button>
         </div>
     )
 }

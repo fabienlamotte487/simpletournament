@@ -9,12 +9,7 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
   return (
     <html lang="fr">
       <body className={`${font.className} py-2`}>
-        <header>
-          <h1>Mythic Tournament</h1>
-        </header> 
-        <main>
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   );

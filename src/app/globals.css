@@ -4,7 +4,17 @@
   --primary: #5F1108;
   --secondary: #FD250D;
   --white: #D9DADE;
+  --dark: #101010;
   --success: #308C24;
+  --danger: #BF0000;
+}
+
+.text-success{
+  color: var(--success);
+}
+
+.text-danger{
+  color: var(--danger);
 }
 
 body {
@@ -51,20 +61,6 @@ p{
 .f-input-text {
   background: var(--white);
   @apply border-0 outline-none text-black px-2 py-1 rounded-md;
-}
-
-.f-input-number {
-  cursor: default;
-  @apply text-center font-bold text-4xl bg-red-400 w-full flex-1 h-20 outline-0;
-}
-
-.f-input-number-button {
-  transition: opacity .5s ease;
-  @apply text-center flex-2 bg-zinc-700;
-}
-
-.f-input-number-button:active {
-  opacity: 0.5;
 }
 
 .error-message {
@@ -151,7 +147,6 @@ p{
   padding: 14px 10px;
   @apply flex items-center justify-between my-1 rounded;
 }
-
 
 /* Tableau participant */
 .tab{
@@ -319,4 +314,32 @@ p{
 .timer-btn:focus-visible {
   outline: 2px solid #3b82f6;
   outline-offset: 2px;
+}
+
+.config-panel{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.config-panel form {
+  background: var(--dark);
+  width: 100%;
+}
+
+.config-panel > button {
+  background: var(--dark);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 150px;
+  height: 125px;
+}
+
+.config-panel button ul {
+  padding: 1rem .5rem;
+  flex-wrap: wrap;
 }

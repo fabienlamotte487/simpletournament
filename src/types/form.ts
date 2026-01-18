@@ -6,13 +6,11 @@ export type InputTextType = {
 }
 
 export type InputNumberType = {
-  addClass?: string;
+  icon: any;
   value: number;
-  label?: string;
   name: string;
   setInput: React.Dispatch<React.SetStateAction<number>>;
   range: number;
   min?: number;
   max?: number;
-  description?: string;
 }

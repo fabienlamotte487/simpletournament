@@ -1,90 +1,158 @@
 "use client"
 
-import { usePlayerStore } from "@/src/stores/usePlayerStore";
-import { useTournamentStore } from "@/src/stores/useTournamentStore";
+import {useEffect, useRef, useState } from "react";
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import CloseIcon from '@mui/icons-material/Close';
+import HandshakeIcon from '@mui/icons-material/Handshake';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { useConfigStore } from "@/src/stores/useConfigStore";
 import InputNumber from "@/src/ui/form/inputNumber";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { PLAYGROUND } from "@/src/config/paths";
-import { createTournament } from "@/src/hooks/manageTournament";
+import CheckIcon from '@mui/icons-material/Check';
+import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
+import { DRAW_POINTS, LOSS_POINTS, ROUND_NUMBER, ROUND_TIME, WIN_POINTS } from "@/src/constants/config";
 
 function Configuration() {
-    const [duration, setDuration] = useState<number>(50);
-    const [errors, setErrors] = useState<string[]>([]);
-    const [roundNumber, setRoundNumber] = useState<number>(3);
-    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-    const {addTournament, clearUnusedTournaments} = useTournamentStore();
-    const {players} = usePlayerStore();
-    const router = useRouter();
-    const gamers = players.filter(p => p.currentPlayer);
+    const {config, updateConfig, resetConfig} = useConfigStore()
+    const [roundNumber, setRoundNumber] = useState<number>(config.roundNumber);
+    const [roundDuration, setRoundDuration] = useState<number>(config.roundTime);
+    const [winPoints, setWinPoints] = useState<number>(config.winPoints);
+    const [lossPoints, setLossPoints] = useState<number>(config.lossPoints);
+    const [drawPoints, setDrawPoints] = useState<number>(config.drawPoints);
+    const firstChildRef = useRef(null);
+    const [topOffset, setTopOffset] = useState(1000);
+    const [isConfigOpened, setIsConfigOpened] = useState(false);
 
     function handleSubmit(e:any){
         e.preventDefault();
-        setIsSubmitting(true);
-        let errorMessage:string[] = [];
-        setErrors(errorMessage);
 
-        try{
-            if(!duration || typeof duration !== "number")
-            {
-                errorMessage.push("Erreur dans l'écriture de la durée d'une ronde");
-            }
-            if(!roundNumber || typeof roundNumber !== "number")
-            {
-                errorMessage.push("Erreur dans l'écriture du nombre de rondes");
-            }
+        const newConfig = {
+            drawPoints: drawPoints,
+            winPoints: winPoints,
+            lossPoints: lossPoints,
+            roundTime: roundDuration,
+            roundNumber: roundNumber
+        };
 
-            if(errorMessage.length > 0){
-                setErrors(errorMessage);
-                setIsSubmitting(false);
-                return;
-            }
+        updateConfig(newConfig)
+        closeConfig()
+    }
 
-            clearUnusedTournaments()
-            createTournament(gamers, {
-                roundNumber: roundNumber,
-                roundDuration: duration
-            }, addTournament);
+    function clearForm(){
+        setLossPoints(config.lossPoints);
+        setDrawPoints(config.drawPoints);
+        setWinPoints(config.winPoints);
+        setRoundDuration(config.roundTime);
+        setRoundNumber(config.roundNumber);
 
-            router.push(PLAYGROUND);
-        } catch(e) {
-            console.error(e);
-            setIsSubmitting(false);
+        closeConfig()
+    }
+
+    function resetFromDefaultSettings(){
+        setLossPoints(LOSS_POINTS);
+        setDrawPoints(DRAW_POINTS);
+        setWinPoints(WIN_POINTS);
+        setRoundDuration(ROUND_TIME);
+        setRoundNumber(ROUND_NUMBER);
+        resetConfig()
+    }
+
+    function openConfig(){
+        if(!isConfigOpened){
+            setTopOffset(0)
+            setIsConfigOpened(true)
+        } else {
+            setTopOffset(firstChildRef.current.offsetHeight)
+            setIsConfigOpened(false)
         }
     }
 
-    if(gamers.length === 0){
-        return <div className="text-center">En attente...</div>;
+    function closeConfig(){
+        setTopOffset(firstChildRef.current.offsetHeight)
+        setIsConfigOpened(false)
     }
 
-    return (
-        <form className="block d-flex flex-col" onSubmit={handleSubmit}>
-            <h2 className="text-center">Configuration du tournoi</h2>
-            <InputNumber
-                label="Nombre de tours"
-                value={roundNumber}
-                range={1}
-                name="roundNumber"
-                min={2}
-                setInput={setRoundNumber}
-            />
-            <InputNumber
-                label="Durée d'une manche"
-                value={duration}
-                range={5}
-                min={30}
-                name="duration"
-                setInput={setDuration}
-                description="*Durée exprimée en minutes"
-            />
+    useEffect(() => {
+        if (firstChildRef.current) {
+            setTopOffset(firstChildRef.current.offsetHeight);
+        }
+    }, []);
 
-            <div className="flex justify-end mt-10 flex-col">
-                {errors && <ul>
-                    {errors.map(e => <li className="text-red-500">{e}</li>)}
-                </ul>}
-                <button className="btn" disabled={isSubmitting} type="submit">Commencer le tournoi</button>
-            </div>
-        </form>
+    return (
+        <div className="config-panel" style={{ top: `-${topOffset}px`, transition: "top .3s ease" }}>
+            <form className="flex flex-col justify-center items-center p-3 border-b-white border-b-1" onSubmit={handleSubmit} ref={firstChildRef}>
+                <p className="text-center">Déterminez le temps et le nombre de rondes</p>
+                <ul className="flex flex-wrap gap-2 mb-5">
+                    <li>
+                        <InputNumber
+                            icon={() => <AccessTimeFilledIcon />}
+                            value={roundDuration}
+                            range={10}
+                            name="roundDuration"
+                            min={30}
+                            setInput={setRoundDuration}
+                        />
+                    </li>
+                    <li>
+                        <InputNumber
+                            icon={() => <ChangeCircleIcon />}
+                            value={roundNumber}
+                            range={1}
+                            name="roundNumber"
+                            min={2}
+                            setInput={setRoundNumber}
+                        />
+                    </li>
+                    {/* TODO => METTRE UNE RECO POUR LE NOMBRE DE RONDE EN FONCTION DU NOMBRE DE JOUEUR */}
+                </ul>
+                <p className="text-center mb-3">Choisissez les points à attribuer selon le score</p>
+                <ul className="flex flex-wrap gap-2 mb-5">
+                    <li>
+                        <InputNumber
+                            icon={() => <EmojiEventsIcon />}
+                            value={winPoints}
+                            range={1}
+                            name="winPoints"
+                            setInput={setWinPoints}
+                        />
+                    </li>
+                    <li>
+                        <InputNumber
+                            icon={() => <CloseIcon />}
+                            value={lossPoints}
+                            range={1}
+                            name="lossPoints"
+                            setInput={setLossPoints}
+                        />
+                    </li>
+                    <li>
+                        <InputNumber
+                            icon={() => <HandshakeIcon />}
+                            value={drawPoints}
+                            range={1}
+                            name="drawPoints"
+                            setInput={setDrawPoints}
+                        />
+                    </li>
+                </ul>
+                <ul className="flex gap-2">
+                    <li><button type="submit" className="text-success"><CheckIcon /></button></li>
+                    <li><button type="button" onClick={clearForm} className="text-danger"><CloseIcon /></button></li>
+                    <li><button type="button" onClick={resetFromDefaultSettings}><SettingsBackupRestoreIcon /></button></li>
+                </ul>
+            </form>
+            <button onClick={openConfig}>
+                <ul className="flex gap-2 justify-center">
+                    <li><AccessTimeFilledIcon />{config.roundTime}m</li>
+                    <li><ChangeCircleIcon />{config.roundNumber}</li>
+                    <li><EmojiEventsIcon />{config.winPoints}</li>
+                    <li><CloseIcon />{config.lossPoints}</li>
+                    <li><HandshakeIcon />{config.drawPoints}</li>
+                </ul>
+                <KeyboardArrowDownIcon />
+            </button>
+        </div>
     )
 }
 
