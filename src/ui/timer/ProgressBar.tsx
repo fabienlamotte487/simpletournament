@@ -1,4 +1,4 @@
-import { ProgressBarProps } from "@/src/types/CountDownTimer";
+import { ProgressBarProps } from "@/src/types/countDownTimer";
 
 export default function ProgressBar(props:ProgressBarProps) {
     const {isFinished, timeLeft, initialMilliseconds} = props

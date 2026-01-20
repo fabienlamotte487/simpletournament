@@ -1,4 +1,4 @@
-import { ControlsProps } from '@/src/types/CountDownTimer'
+import { ControlsProps } from '@/src/types/countDownTimer'
 import React from 'react'
 import Pause from '@mui/icons-material/Pause';
 import Play from '@mui/icons-material/PlayCircle';
