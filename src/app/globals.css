@@ -79,6 +79,17 @@ p{
   transition: opacity .3s ease;
 }
 
+.btn.shuffle{
+  background: var(--dark);
+  border-radius: 20px;
+  transition: opacity .1s ease;
+}
+
+.btn.shuffle:active{
+  opacity: .8;
+  transform: scale(1.05);
+}
+
 .btn-icon.cercled{
   border-radius: 100%;
   padding: 5px;

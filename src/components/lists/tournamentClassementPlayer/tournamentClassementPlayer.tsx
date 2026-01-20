@@ -28,13 +28,16 @@ function TournamentClassementPlayer() {
     return (
         <>
             {isFirstRound && (
-                <button
-                    type="button"
-                    onClick={handleShuffle}
-                    title="Mélanger les joueurs"
-                >
-                    <ShuffleOnIcon />
-                </button>
+                <div className="flex justify-center items-center">
+                    <button
+                        className="btn shuffle"
+                        type="button"
+                        onClick={handleShuffle}
+                        title="Mélanger les joueurs"
+                    >
+                        <ShuffleOnIcon />
+                    </button>
+                </div>
             )}
 
             <ul className="playgroundList">
