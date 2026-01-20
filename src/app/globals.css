@@ -165,7 +165,7 @@ p{
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   transition: color 0.3s ease;
-  color: #434FC4;
+  color: var(--white);
   line-height: 1;
 }
 
@@ -205,11 +205,11 @@ p{
 }
 
 .timer-btn-play {
-  background-color: #434FC4;
+  background-color: var(--primary);
 }
 
 .timer-btn-play:hover:not(:disabled) {
-  background-color: #2563eb;
+  background-color: var(--white);
 }
 
 .timer-btn-play:disabled {
@@ -244,16 +244,6 @@ p{
   overflow: hidden;
 }
 
-.timer-progress-bar {
-  height: 100%;
-  transition: width 1s linear, background-color 0.3s ease;
-  background-color: #434FC4;
-}
-
-.timer-progress-bar.finished {
-  background-color: #ef4444;
-}
-
 /* Message de fin */
 .timer-message {
   color: #ef4444;
@@ -273,7 +263,7 @@ p{
 
 /* Accessibilité - Focus visible */
 .timer-btn:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
 
@@ -307,7 +297,7 @@ p{
 }
 
 /* TOURNAMENT */
-.tournament button {
+.tournament > button {
   margin-top: 100px;
 }
 

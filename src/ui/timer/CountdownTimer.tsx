@@ -54,9 +54,6 @@ export default function CountdownTimer(props: {initialMilliseconds:number}) {
         }}
       />
       
-      {/* Indicateur visuel de progression */}
-      <ProgressBar {...{initialMilliseconds, timeLeft, isFinished}} />
-
       {isFinished && 
         <p className="timer-message">
           Temps écoulé !

@@ -7,7 +7,6 @@ import RotateCcw from '@mui/icons-material/SettingsBackupRestore';
 function Controls(props: ControlsProps) {
     const {isFinished, isRunning, setIsRunning, setTimeLeft, timeLeft, initialMilliseconds} = props;
 
-    
     const toggleTimer = () => {
         if (timeLeft > 0) {
             setIsRunning(!isRunning);
@@ -22,6 +21,7 @@ function Controls(props: ControlsProps) {
     return (
         <div className="timer-controls">
             <button
+            type="button"
             onClick={toggleTimer}
             disabled={isFinished}
             className={`timer-btn timer-btn-play`}
@@ -31,6 +31,7 @@ function Controls(props: ControlsProps) {
             </button>
 
             <button
+                type="button"
                 onClick={resetTimer}
                 className="timer-btn timer-btn-reset"
                 aria-label="Réinitialiser le timer"
