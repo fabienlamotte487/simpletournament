@@ -288,8 +288,8 @@ p{
 }
 
 /* TOURNAMENT */
-.tournament > button {
-  margin-top: 100px;
+.tournament {
+  padding-top: 100px;
 }
 
 .tournament h1 {
