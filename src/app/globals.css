@@ -406,6 +406,15 @@ ul.playgroundList li .bye{
   font-size: 32px !important;
 }
 
+.write-score-page {
+  transition: opacity 0.2s ease;
+}
+
+.write-score-page.is-leaving {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .classementList{
   display: flex;
   flex-direction: column;

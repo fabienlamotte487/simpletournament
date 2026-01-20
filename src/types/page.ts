@@ -10,6 +10,7 @@ export interface TournamentPageProps {
     title: string;
     showRound?: boolean;
     showBackButton?: boolean;
+    clickAction?: Function;
     link: {
         title: string;
         target: string;

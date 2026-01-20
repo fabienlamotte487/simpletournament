@@ -27,7 +27,6 @@ export const useTournamentStore = create<TournamentState>()(
 
         updateTournament: (tournament, data) => set((state) => {
           const tournamentToUpdate = { ...tournament, ...data };
-          console.log(tournamentToUpdate)
 
           return {
             tournaments: state.tournaments.map(t => 

@@ -1,5 +1,3 @@
-"use client"
-
 import { useTournamentStore } from "@/src/stores/useTournamentStore";
 import ItemTournamentClassementPlayer from "./itemTournamentClassementPlayer";
 import { apairying } from "@/src/hooks/preparePlayers/apairying";

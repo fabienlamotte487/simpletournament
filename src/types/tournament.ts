@@ -26,6 +26,7 @@ export type Tournament = {
   config: TournamentConfig;
   rounds: [];
   players: TournamentPlayer[];
+  currentRoundPlayers: TournamentPlayer[];
 }
 
 export type TournamentState = {

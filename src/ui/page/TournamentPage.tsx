@@ -3,9 +3,18 @@ import { TournamentPageProps } from '@/src/types/page';
 import Backbutton from '../Buttons/backbutton';
 import TitleRound from '../Title/TitleRound';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 function TournamentPage(props: TournamentPageProps) {
-    const {children, link, title, formSubmit, showRound = true, showBackButton = true} = props;
+    const {children, link, title, formSubmit, showRound = true, showBackButton = true, clickAction} = props;
+    const router = useRouter()
+
+    function handleClick(){
+        if(clickAction){
+            clickAction()
+            router.push(link.target)
+        }
+    }
 
     return (
         <div className='flex flex-col justify-center items-start tournament'>
@@ -18,8 +27,10 @@ function TournamentPage(props: TournamentPageProps) {
             <div className="flex justify-center items-center w-full mt-5">
                 {formSubmit ? 
                     <button className='btn' type="submit">{link.title}</button>
-                    :
-                    <Link className="btn" href={link.target}>{link.title}</Link>
+                    : clickAction ? 
+                        <button className='btn' type="button" onClick={handleClick}>{link.title}</button>
+                        :
+                        <Link className="btn" href={link.target}>{link.title}</Link>
                 }
             </div>
         </div>
