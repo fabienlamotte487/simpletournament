@@ -14,6 +14,9 @@ export type TournamentPlayer = {
 export type TournamentConfig = {
   roundNumber: number;
   roundDuration: number;
+  drawPoints: number;
+  winPoints: number;
+  lossPoints: number;
 }
 
 export type Tournament = {

@@ -8,11 +8,11 @@ export const useConfigStore = create<ConfigState>()(
     persist(
       (set, get) => ({
         config: {
-            drawPoints: DRAW_POINTS,
-            winPoints: WIN_POINTS,
-            lossPoints: LOSS_POINTS,
-            roundTime: ROUND_TIME,
-            roundNumber: ROUND_NUMBER
+          drawPoints: DRAW_POINTS,
+          winPoints: WIN_POINTS,
+          lossPoints: LOSS_POINTS,
+          roundTime: ROUND_TIME,
+          roundNumber: ROUND_NUMBER
         },
 
         updateConfig: (configValues) => set((state) => {
