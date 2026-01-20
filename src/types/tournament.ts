@@ -54,3 +54,8 @@ export interface CheckResult {
 }
 
 export type TournamentPlayerPair = [TournamentPlayer, TournamentPlayer];
+
+export type ClassementItemProps = {
+  player: TournamentPlayer;
+  index: number;
+}

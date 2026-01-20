@@ -8,6 +8,8 @@ export type shapePageProps = {
 export interface TournamentPageProps {
     children: any;
     title: string;
+    showRound: boolean;
+    showBackButton: boolean;
     link: {
         title: string;
         target: string;

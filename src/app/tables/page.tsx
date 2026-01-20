@@ -20,7 +20,6 @@ function page() {
   
   const matchs = apairying(tournament.players);
   const milliseconds = tournament?.config.roundDuration * 60 * 1000;
-  const isFinalRound = tournament.rounds.length+1 === tournament.config.roundNumber
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -42,6 +41,11 @@ function page() {
     }
 
     updateTournament(tournament, tournamentData);
+
+    if(tournament.rounds.length+1 === tournament.config.roundNumber){
+      router.push(CLASSEMENT);
+      return
+    }
 
     router.push(PLAYGROUND);
   }

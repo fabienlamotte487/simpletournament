@@ -7,6 +7,9 @@
   --dark: #101010;
   --success: #308C24;
   --danger: #BF0000;
+  --gold: #D67400;
+  --silver: #D0CCC9;
+  --bronze: #BD993B;
 }
 
 .text-success{
@@ -401,4 +404,57 @@ ul.playgroundList li .bye{
 
 .write-score-page .player p{
   font-size: 32px !important;
+}
+
+.classementList{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.classementList li{
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary);
+  padding: 5px 10px;
+  border-radius: 7px;
+  width: 70%;
+}
+
+.classementList li:nth-child(-n+3){
+  width: 100%;
+}
+
+.classementList li:first-child{
+  border: 3px solid var(--gold);
+}
+
+.classementList p{
+  font-size: 12px;
+}
+
+.classementList li:nth-child(-n+3) p{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.classementList li:first-child p:first-child{
+  color: var(--gold);
+}
+.classementList li:nth-child(2) p:first-child{
+  color: var(--silver);
+}
+.classementList li:nth-child(3) p:first-child{
+  color: var(--bronze);
+}
+
+.classementList li div{
+  display: flex;
+}
+
+.classementList li p:first-child{
+  margin-right: 5px;
 }
