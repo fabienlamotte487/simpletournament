@@ -13,22 +13,18 @@ function TournamentClassementPlayer() {
     const matchs = apairying(tournament.players);
 
     return (
-        <div className='tab'>
-            <div className='tab-header'>
-                <h2>Liste des matchs !</h2>
-            </div>
-            <div className='tab-body'>
-                <ul>
-                    {matchs.map((p, i) => {
-                        let id = p[0].id;
-                        if(p[1]){
-                            id += "-" + p[1].id;
-                        }
-                        
-                        return <ItemTournamentClassementPlayer {...p} key={id}  />
-                    })}
-                </ul>
-            </div>
+        <div className='block w-full'>
+            <h2 className="text-center">Présentation des matchs</h2>
+            <ul className="playgroundList">
+                {matchs.map((p, i) => {
+                    let id = p[0].id;
+                    if(p[1]){
+                        id += "-" + p[1].id;
+                    }
+                    
+                    return <ItemTournamentClassementPlayer {...p} key={id}  />
+                })}
+            </ul>
         </div>
     )
 }

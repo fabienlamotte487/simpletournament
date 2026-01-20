@@ -12,7 +12,7 @@ function Backbutton() {
     return (
         <button 
             type="button" 
-            className={`btn`} 
+            className={`btn-icon cercled`} 
             onClick={handleBack}>
             <ArrowBackIcon />
         </button>

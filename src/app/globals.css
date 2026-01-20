@@ -35,13 +35,12 @@ body {
 h1 {
   font-size: 32px;
   font-weight: 500;
-  @apply text-center mb-3;
+  @apply mb-3;
 }
 
 h2 {
   font-size: 20px;
   font-weight: 500;
-  @apply text-left;
 }
 
 p{
@@ -145,43 +144,6 @@ p{
   background: var(--primary);
   padding: 14px 10px;
   @apply flex items-center justify-between my-1 rounded;
-}
-
-/* Tableau participant */
-.tab{
-  @apply border;
-}
-.tab .tab-header{
-  @apply border;
-}
-.tab .tab-header h2 {
-  @apply text-xl text-center;
-}
-.tab .tab-body {
-  @apply w-full;
-}
-
-.tab .tab-body .tab-item{
-  @apply flex justify-between items-center relative p-5 my-2 border-b-4;
-}
-
-.tab .tab-body .tab-item:last-child{
-  @apply mb-0 border-0;
-}
-.tab .tab-body .tab-item div{
-  width: 50%;
-  @apply flex items-center gap-2;
-}
-.tab .tab-body .tab-item div:last-child{
-  @apply flex items-center justify-end;
-}
-
-.tab .tab-body .tab-item div span {
-  @apply text-2xl;
-}
-
-.tab .tab-body .tab-item img{
-  @apply absolute left-0 right-0 m-auto;
 }
 
 /* COUNTDOWN TIMER - CSS  */
@@ -342,4 +304,90 @@ p{
 .config-panel button ul {
   padding: 1rem .5rem;
   flex-wrap: wrap;
+}
+
+/* TOURNAMENT */
+.tournament button {
+  margin-top: 100px;
+}
+
+.tournament h1 {
+  margin: 20px 0;
+}
+
+/* PLAYGROUND */
+ul.playgroundList{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+ul.playgroundList li{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 13px;
+}
+
+ul.playgroundList li .player-left, ul.playgroundList li .player-right{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+ul.playgroundList li .player-right{
+  align-items: flex-end;
+}
+
+ul.playgroundList li .icon-battle{
+  position:absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 2;
+}
+
+ul.playgroundList li .diag-bar{
+  height: 2px;
+  width: 85px;
+  background: var(--secondary);
+  position:absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transform: rotate(60deg);
+  z-index: 1;
+}
+
+ul.playgroundList li .body{
+  background: var(--primary);
+  position: relative;
+  width: 100%;
+  padding: 15px 10px 15px 10px;
+}
+
+ul.playgroundList li .player-right .body{
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+ul.playgroundList li .player-left .body{
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+ul.playgroundList li .player-right .border, ul.playgroundList li .player-left .border{
+  height: 2px;
+  background: var(--primary);
+  border: none;
+  width: 100%;
+  position: relative;
 }
