@@ -20,6 +20,11 @@
   color: var(--danger);
 }
 
+.text-info{
+  font-size: 11px;
+  width: 75%;
+}
+
 body {
   background: var(--primary);
   color: white;
@@ -82,12 +87,12 @@ p{
 .btn.shuffle{
   background: var(--dark);
   border-radius: 20px;
-  transition: opacity .1s ease;
 }
 
 .btn.shuffle:active{
   opacity: .8;
   transform: scale(1.05);
+  transition: opacity .1s ease, transform .1s ease;
 }
 
 .btn-icon.cercled{

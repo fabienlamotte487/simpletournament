@@ -28,7 +28,7 @@ function TournamentClassementPlayer() {
     return (
         <>
             {isFirstRound && (
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center flex-col">
                     <button
                         className="btn shuffle"
                         type="button"
@@ -37,6 +37,7 @@ function TournamentClassementPlayer() {
                     >
                         <ShuffleOnIcon />
                     </button>
+                    <p className="text-center text-info">Matraquez le bouton au-dessus pour re-mélanger 😁</p>
                 </div>
             )}
 
