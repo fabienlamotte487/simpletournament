@@ -19,7 +19,7 @@ function InputNumber(props: InputNumberType) {
 
     return (
         <div className="items-center flex">
-            {icon()}
+            {icon && icon()}
             <button type="button" className="f-input-number-button" onClick={handleDecreaseValue}><ArrowLeftRoundedIcon sx={{ fontSize: 25 }} /></button>
             <input
                 type="number"
