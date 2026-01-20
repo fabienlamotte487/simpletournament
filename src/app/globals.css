@@ -407,7 +407,7 @@ ul.playgroundList li .bye{
 }
 
 .write-score-page {
-  transition: opacity 0.2s ease;
+  transition: opacity 0.3s ease;
 }
 
 .write-score-page.is-leaving {

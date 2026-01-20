@@ -46,12 +46,16 @@ function page() {
     if(tournament.rounds.length+1 === tournament.config.roundNumber){
       tournamentData.finished_at = Date.now();
       updateTournament(tournament, tournamentData);
-      router.replace(CLASSEMENT);
+      setTimeout(() => {
+        router.replace(CLASSEMENT);
+      }, 300)
       return
     }
 
     updateTournament(tournament, tournamentData);
-    router.push(PLAYGROUND);
+    setTimeout(() => {
+      router.push(PLAYGROUND);
+    }, 300)
   }
 
   return (
