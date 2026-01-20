@@ -1,19 +1,12 @@
 import TournamentClassementPlayer from "@/src/components/lists/tournamentClassementPlayer/tournamentClassementPlayer"
 import { TABLES } from "@/src/config/paths"
-import Backbutton from "@/src/ui/Buttons/backbutton"
-import TitleRound from "@/src/ui/Title/TitleRound"
-import Link from "next/link"
+import TournamentPage from "@/src/ui/page/TournamentPage"
 
 function page() {
   return (
-    <div className="flex flex-col justify-center items-start tournament">
-      <Backbutton />
-      <TitleRound />
+    <TournamentPage title="Présentation des matchs" link={{title: "Débuter la ronde", target: TABLES}}>
       <TournamentClassementPlayer />
-      <div className="flex justify-center items-center w-full mt-5">
-        <Link className="btn" href={TABLES}>Débuter la ronde</Link>
-      </div>
-    </div>
+    </TournamentPage>
   )
 }
 
