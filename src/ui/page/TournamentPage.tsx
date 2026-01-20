@@ -5,12 +5,12 @@ import TitleRound from '../Title/TitleRound';
 import Link from 'next/link';
 
 function TournamentPage(props: TournamentPageProps) {
-    const {children, link, title, formSubmit} = props;
+    const {children, link, title, formSubmit, showRound = true, showBackButton = true} = props;
 
     return (
         <div className='flex flex-col justify-center items-start tournament'>
-            <Backbutton />
-            <TitleRound />
+            {showBackButton && <Backbutton />}
+            {showRound && <TitleRound />}
             <div className='block w-full'>
                 <h2 className="text-center">{title}</h2>
                 {children}
