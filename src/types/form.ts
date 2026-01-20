@@ -7,7 +7,7 @@ export type InputTextType = {
 }
 
 export type InputNumberType = {
-  icon: any;
+  icon?: any;
   value: number;
   name: string;
   setInput: React.Dispatch<React.SetStateAction<number>>;

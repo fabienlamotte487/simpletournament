@@ -1,7 +1,8 @@
-import React from 'react'
+'use client'
 import Backbutton from '../Buttons/backbutton';
 import TitleRound from '../Title/TitleRound';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 interface TournamentPageProps {
     children: any;
@@ -10,10 +11,11 @@ interface TournamentPageProps {
         title: string;
         target: string;
     }
+    formSubmit?: boolean;
 }
 
 function TournamentPage(props: TournamentPageProps) {
-    const {children, link, title} = props;
+    const {children, link, title, formSubmit} = props;
 
     return (
         <div className='flex flex-col justify-center items-start tournament'>
@@ -24,7 +26,11 @@ function TournamentPage(props: TournamentPageProps) {
                 {children}
             </div>
             <div className="flex justify-center items-center w-full mt-5">
-                <Link className="btn" href={link.target}>{link.title}</Link>
+                {formSubmit ? 
+                    <button className='btn' type="submit">{link.title}</button>
+                    :
+                    <Link className="btn" href={link.target}>{link.title}</Link>
+                }
             </div>
         </div>
     )

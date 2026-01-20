@@ -5,6 +5,7 @@ import { checkScore } from "@/src/hooks/manageScore";
 import { prepareData } from "@/src/hooks/manageScore/prepareData";
 import { apairying } from "@/src/hooks/preparePlayers/apairying";
 import { useTournamentStore } from "@/src/stores/useTournamentStore";
+import TournamentPage from "@/src/ui/page/TournamentPage";
 import CountdownTimer from "@/src/ui/timer/CountdownTimer";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -42,25 +43,16 @@ function page() {
 
     updateTournament(tournament, tournamentData);
 
-    if(isFinalRound){
-      router.push(CLASSEMENT);
-      return;
-    }
-
     router.push(PLAYGROUND);
   }
 
   return (
-    <>
-      <h2>Ronde n°{tournament?.rounds.length + 1}</h2>
-      <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="write-score-page">
+      <TournamentPage formSubmit title="Enregistrement des résultats" link={{title: "Enregistrer les résultats", target: CLASSEMENT}}>
         <CountdownTimer initialMilliseconds={milliseconds} />
         <Tables />
-        <button type="submit">
-          {isFinalRound ? "Découvrir le classement final" : "Ronde suivante"}
-        </button>
-      </form>
-    </>
+      </TournamentPage>
+    </form>
   )
 }
 
