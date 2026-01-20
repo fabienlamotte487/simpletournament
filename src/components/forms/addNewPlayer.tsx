@@ -20,7 +20,7 @@ export default function AddNewPlayer() {
         const response = registerPseudo(pseudo);
         setError(response.message);
 
-        const isPseudoAlreadyTaken = players.filter(player => player.pseudo === response.value).length >= 1;
+        const isPseudoAlreadyTaken = players.filter(player => player.pseudo.toLowerCase() === response.value.toLowerCase()).length >= 1;
         if(isPseudoAlreadyTaken){
             setError(ALREADY_TAKEN_PSEUDO);
             response.isValid = false;
