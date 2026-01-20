@@ -10,8 +10,8 @@ function ItemTournamentTable(props:tournamentTableProps) {
     const [pointPlayer2, setPointPlayer2] = useState(0);
 
     return (
-        <div className='flex gap-2'>
-            <div className='w-full'>
+        <li className='flex gap-2 player-match'>
+            <div className='w-full player'>
                 {player1.pseudo}
                 <InputNumber 
                     value={pointPlayer1}
@@ -21,7 +21,7 @@ function ItemTournamentTable(props:tournamentTableProps) {
                     max={2}
                 />
             </div>
-            <div className='text-right w-full'>
+            <div className='text-right w-full player'>
                 {player2.pseudo}
                 <InputNumber 
                     value={pointPlayer2}
@@ -31,7 +31,7 @@ function ItemTournamentTable(props:tournamentTableProps) {
                     max={2}
                 />
             </div>
-        </div>
+        </li>
     )
 }
 

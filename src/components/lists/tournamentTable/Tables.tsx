@@ -9,8 +9,13 @@ function Tables() {
   }
   const matchs = apairying(tournament.players);
 
-  return matchs.map((match, i) => 
-    match[1] !== null && <ItemTournamentTable match={match} key={i} />)
+  return (
+    <ul>
+      {matchs.map((match, i) => 
+      match[1] !== null && <ItemTournamentTable key={i} match={match} />)}
+    </ul>
+  ) 
+
 }
 
 export default Tables

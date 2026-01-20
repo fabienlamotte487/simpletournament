@@ -209,19 +209,10 @@ p{
 }
 
 .timer-btn-play:hover:not(:disabled) {
-  background-color: var(--white);
-}
-
-.timer-btn-play:disabled {
-  background-color: #d1d5db;
-  cursor: not-allowed;
+  background-color: var(--primary);
 }
 
 .timer-btn-reset {
-  background-color: #6b7280;
-}
-
-.timer-btn-reset:hover {
   background-color: #4b5563;
 }
 
@@ -377,6 +368,37 @@ ul.playgroundList li .bye{
   padding: 15px 10px 15px 10px;
 }
 
-.write-score-page {
+.write-score-page .player{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.write-score-page .player .f-input-number-button{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.write-score-page .player .f-input-number-button:first-child{
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.write-score-page ul{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.write-score-page .player-match:not(:last-child){
+  border-bottom: 1px solid white;
+}
+
+.write-score-page .player p{
+  font-size: 32px !important;
 }
