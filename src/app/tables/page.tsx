@@ -27,7 +27,6 @@ function page() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
     const values = Object.fromEntries(formData.entries());
@@ -36,6 +35,7 @@ function page() {
     if(!isValid){
       return;
     }
+    setIsSubmitting(true);
 
     const preparedDatas = prepareData(matchs, data);
     const tournamentData = {
