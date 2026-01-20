@@ -9,9 +9,11 @@ function ItemTournamentClassementPlayer(props: TournamentPlayerPair) {
     <li>
       <PlayerPresentation pseudo={player1.pseudo} matchpoints={player1.matchPoints} place="LEFT" />
       <div className='diag-bar'></div>
-      <Image className='icon-battle' src="/svg/sword.svg" height={50} width={50} alt="" />
-      {player2 ? <PlayerPresentation pseudo={player2.pseudo} matchpoints={player2.matchPoints} place="RIGHT" /> 
-      : <div>BYE</div>}
+      {player2 ? 
+        <PlayerPresentation pseudo={player2.pseudo} matchpoints={player2.matchPoints} place="RIGHT" /> 
+      : <div className='bye'>
+          BYE
+        </div>}
     </li>
   )
 }

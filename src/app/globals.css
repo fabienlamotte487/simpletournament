@@ -329,7 +329,7 @@ ul.playgroundList li{
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;
   font-size: 13px;
 }
 
@@ -341,16 +341,6 @@ ul.playgroundList li .player-left, ul.playgroundList li .player-right{
 
 ul.playgroundList li .player-right{
   align-items: flex-end;
-}
-
-ul.playgroundList li .icon-battle{
-  position:absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  z-index: 2;
 }
 
 ul.playgroundList li .diag-bar{
@@ -390,4 +380,9 @@ ul.playgroundList li .player-right .border, ul.playgroundList li .player-left .b
   border: none;
   width: 100%;
   position: relative;
+}
+
+ul.playgroundList li .bye{
+  background: var(--primary);
+  padding: 15px 10px 15px 10px;
 }
