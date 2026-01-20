@@ -39,15 +39,15 @@ function page() {
       players: preparedDatas.players,
       rounds: [...tournament.rounds, preparedDatas.matches]
     }
-
-    updateTournament(tournament, tournamentData);
-
+    
     if(tournament.rounds.length+1 === tournament.config.roundNumber){
       router.push(CLASSEMENT);
+      updateTournament(tournament, tournamentData);
       return
     }
 
     router.push(PLAYGROUND);
+    updateTournament(tournament, tournamentData);
   }
 
   return (
