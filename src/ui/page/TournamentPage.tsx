@@ -1,18 +1,8 @@
 'use client'
+import { TournamentPageProps } from '@/src/types/page';
 import Backbutton from '../Buttons/backbutton';
 import TitleRound from '../Title/TitleRound';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-
-interface TournamentPageProps {
-    children: any;
-    title: string;
-    link: {
-        title: string;
-        target: string;
-    }
-    formSubmit?: boolean;
-}
 
 function TournamentPage(props: TournamentPageProps) {
     const {children, link, title, formSubmit} = props;

@@ -5,8 +5,8 @@ import { checkScore } from "@/src/hooks/manageScore";
 import { prepareData } from "@/src/hooks/manageScore/prepareData";
 import { apairying } from "@/src/hooks/preparePlayers/apairying";
 import { useTournamentStore } from "@/src/stores/useTournamentStore";
-import TournamentPage from "@/src/ui/page/TournamentPage";
-import CountdownTimer from "@/src/ui/timer/CountdownTimer";
+import TournamentPage from "@/src/ui/Page/TournamentPage";
+import CountdownTimer from "@/src/ui/Timer/CountdownTimer";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 

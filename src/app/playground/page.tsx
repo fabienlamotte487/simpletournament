@@ -1,6 +1,6 @@
 import TournamentClassementPlayer from "@/src/components/lists/tournamentClassementPlayer/tournamentClassementPlayer"
 import { TABLES } from "@/src/config/paths"
-import TournamentPage from "@/src/ui/page/TournamentPage"
+import TournamentPage from "@/src/ui/Page/TournamentPage"
 
 function page() {
   return (

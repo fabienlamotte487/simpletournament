@@ -8,7 +8,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import HandshakeIcon from '@mui/icons-material/Handshake';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useConfigStore } from "@/src/stores/useConfigStore";
-import InputNumber from "@/src/ui/form/inputNumber";
+import InputNumber from "@/src/ui/Form/inputNumber";
 import CheckIcon from '@mui/icons-material/Check';
 import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
 import { DRAW_POINTS, LOSS_POINTS, ROUND_NUMBER, ROUND_TIME, WIN_POINTS } from "@/src/constants/config";

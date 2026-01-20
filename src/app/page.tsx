@@ -3,7 +3,7 @@ import AllPlayers from "@/src/components/lists/allPlayer/allPlayers";
 import TournamentPlayers from "../components/lists/tournamentPlayer/tournamentPlayers";
 import LinkLaunchTournament from "../ui/Buttons/LinkLaunchTournament";
 import { PLAYGROUND } from "../config/paths";
-import ShapePage from "../ui/page/ShapePage";
+import ShapePage from "../ui/Page/ShapePage";
 import Configuration from "../components/forms/configuration";
 
 export default function Home() {

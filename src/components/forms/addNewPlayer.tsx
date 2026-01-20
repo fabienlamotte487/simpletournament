@@ -3,7 +3,7 @@ import { useRef, useState } from 'react'
 import { checkInputValue, sanitizeInput } from '../../hooks/registerPseudo/rules';
 import { usePlayerStore } from '@/src/stores/usePlayerStore';
 import { registerPseudo } from '@/src/hooks/registerPseudo';
-import InputText from '@/src/ui/form/inputText';
+import InputText from '@/src/ui/Form/inputText';
 
 export default function AddNewPlayer() {
     const [pseudo, setPseudo] = useState("");
