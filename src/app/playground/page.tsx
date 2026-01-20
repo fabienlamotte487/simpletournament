@@ -9,8 +9,8 @@ function page() {
 
   function launchMatchs(){
     updateTournament(tournament, {
-    currentRoundPlayers: tournament.players
-  })
+      currentRoundPlayers: tournament.players
+    })
   }
 
   return (
