@@ -64,6 +64,7 @@ function AllPlayers() {
                 label='Rechercher dans la liste:'
                 setInput={selectResearchPlayer}
                 deletable
+                classname="w-full"
               />
               <p className="info">Cliquez sur un pseudo pour l'ajouter au tournoi</p>
               {listSorted.map(player => <ItemPlayer key={player.id} {...player} /> )}

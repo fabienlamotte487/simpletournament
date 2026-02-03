@@ -4,7 +4,8 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import { colors } from "@/src/constants/config";
 
 const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
-  const {value, label, name, setInput, deletable} = props;
+  const {value, label, name, setInput, deletable, classname} = props;
+  const classList = `f-input-text ` + classname;
 
   function deleteContent(){
     setInput("")
@@ -16,7 +17,7 @@ const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
       <div className="relative">
         <input 
           type="text"
-          className='f-input-text'
+          className={classList}
           id={name} 
           onChange={e => setInput(e.target.value)}
           name={name}  

@@ -4,6 +4,7 @@ export type InputTextType = {
   name: string;
   setInput: React.Dispatch<React.SetStateAction<string>>;
   deletable?: boolean;
+  classname?: string;
 }
 
 export type InputNumberType = {
