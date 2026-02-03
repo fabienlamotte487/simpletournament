@@ -80,6 +80,7 @@ p{
 /* Boutons */
 .btn {
   background-color: var(--success);
+  cursor: pointer;
   @apply text-white px-4 py-1 rounded-lg;
 }
 
@@ -282,7 +283,7 @@ p{
 }
 
 .config-panel{
-  position: absolute;
+  position: fixed;
   left: 0;
   width: 100%;
   display: flex;
@@ -312,7 +313,7 @@ p{
 
 /* TOURNAMENT */
 .tournament {
-  padding-top: 100px;
+  padding-top: 20px;
 }
 
 .tournament h1 {
