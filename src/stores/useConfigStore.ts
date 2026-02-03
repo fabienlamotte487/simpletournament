@@ -16,18 +16,26 @@ export const useConfigStore = create<ConfigState>()(
         },
 
         updateConfig: (configValues) => set((state) => {
-          return {config: configValues}
+          return {config: {...state.config, ...configValues}}
         }),
 
-        resetConfig: () => set((state) => {
+        resetConfig: (roundNumber) => set((state) => {
+            const newConfig = {
+              drawPoints: DRAW_POINTS,
+              winPoints: WIN_POINTS,
+              lossPoints: LOSS_POINTS,
+              roundTime: ROUND_TIME,
+              roundNumber: ROUND_NUMBER
+            }
+
+            if(roundNumber){
+              newConfig.roundNumber = roundNumber
+            } else {
+              newConfig.roundNumber = ROUND_NUMBER
+            }
+
             return {
-                config: {
-                    drawPoints: DRAW_POINTS,
-                    winPoints: WIN_POINTS,
-                    lossPoints: LOSS_POINTS,
-                    roundTime: ROUND_TIME,
-                    roundNumber: ROUND_NUMBER
-                }
+              config: newConfig
             }
         })
       }),

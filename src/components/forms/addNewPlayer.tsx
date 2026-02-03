@@ -5,13 +5,14 @@ import { usePlayerStore } from '@/src/stores/usePlayerStore';
 import { registerPseudo } from '@/src/hooks/registerPseudo';
 import InputText from '@/src/ui/Form/inputText';
 import { ALREADY_TAKEN_PSEUDO } from '@/src/hooks/registerPseudo/config';
+import { calculRound } from '@/src/hooks/manageTournament';
+import { useConfigStore } from '@/src/stores/useConfigStore';
 
 export default function AddNewPlayer() {
     const [pseudo, setPseudo] = useState("");
     const [error, setError] = useState("");
-    const {addNewPlayer} = usePlayerStore();
+    const {addNewPlayer, players} = usePlayerStore();
     const ref = useRef<HTMLInputElement>(null);
-    const {players} = usePlayerStore()
 
     function onSubmit(e:any){
         e.preventDefault();
@@ -29,7 +30,7 @@ export default function AddNewPlayer() {
         if(response.isValid){
             addNewPlayer(response.value);
             setPseudo("");
-            ref.current?.focus()
+            ref.current?.focus();
         }
     }
 

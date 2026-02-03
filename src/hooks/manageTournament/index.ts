@@ -16,3 +16,7 @@ export const createTournament = (players: Player[], config:TournamentConfig, add
         rounds: [],
     });
 }
+
+export const calculRound = (numberPlayer: number) => {
+    return Math.ceil(Math.log2(numberPlayer));
+}

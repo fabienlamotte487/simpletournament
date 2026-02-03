@@ -7,6 +7,8 @@
   --dark: #101010;
   --success: #308C24;
   --danger: #BF0000;
+  --warning: #9e7434;
+  --warning-darker: #6e5125;
   --gold: #D67400;
   --silver: #D0CCC9;
   --bronze: #BD993B;
@@ -138,7 +140,7 @@ p{
 .listPlayer {
   height: 350px;
   background: var(--primary);
-  border-radius: 7;
+  border-radius: 7px;
   padding: 16px 16px 33px 16px;
   @apply overflow-scroll;
 }
@@ -487,4 +489,36 @@ ul.playgroundList li .bye{
 
 .classementList li p:first-child{
   margin-right: 5px;
+}
+
+.alert-round{
+  display: flex;
+}
+
+.card-alert{
+  border-radius: 7px;
+}
+
+.card-alert.danger{
+  background: var(--danger);
+}
+
+.card-alert.warning{
+  background: var(--warning);
+}
+
+.card-alert .card-alert-title{
+  align-self: center;
+}
+
+.card-alert button{
+  background: var(--warning-darker);
+  padding: 5px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: opacity .3s ease;
+}
+
+.card-alert button:hover {
+  opacity: .8;
 }

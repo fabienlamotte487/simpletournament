@@ -10,6 +10,6 @@ export type Config = {
 
 export type ConfigState = {
   config: Config;
-  updateConfig: (configValues: Config) => void;
-  resetConfig: () => void;
+  updateConfig: (configValues: Partial<Config>) => void;
+  resetConfig: (roundNumber?: number) => void;
 }

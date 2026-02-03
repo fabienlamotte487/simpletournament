@@ -5,6 +5,8 @@ import LinkLaunchTournament from "../ui/Buttons/LinkLaunchTournament";
 import { PLAYGROUND } from "../config/paths";
 import ShapePage from "../ui/Page/ShapePage";
 import Configuration from "../components/forms/configuration";
+import Alert from "../ui/Alert/Alert";
+import AlertRoundDiffer from "../components/alert/AlertRoundDiffer";
 
 export default function Home() {
   return (
@@ -17,6 +19,7 @@ export default function Home() {
           <Configuration />
           <AllPlayers />
           <AddNewPlayer />
+          <AlertRoundDiffer />
           <TournamentPlayers />
           <LinkLaunchTournament link={PLAYGROUND}>Débuter le tournoi</LinkLaunchTournament>
         </ShapePage>
