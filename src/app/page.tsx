@@ -7,6 +7,7 @@ import ShapePage from "../ui/Page/ShapePage";
 import Configuration from "../components/forms/configuration";
 import Alert from "../ui/Alert/Alert";
 import AlertRoundDiffer from "../components/alert/AlertRoundDiffer";
+import AlertEndRound from "../components/alert/AlertEndRound";
 
 export default function Home() {
   return (

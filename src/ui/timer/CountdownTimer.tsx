@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ShowTimer from './ShowTimer';
 import Controls from './Controls';
 import ProgressBar from './ProgressBar';
@@ -9,17 +9,29 @@ export default function CountdownTimer(props: {initialMilliseconds:number}) {
   const [timeLeft, setTimeLeft] = useState<number>(initialMilliseconds);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const ringRef = useRef<HTMLAudioElement | null>(null)
+  const fiveMinutesLeftRef = useRef<HTMLAudioElement | null>(null)
+  const tenMinutesLeftRef = useRef<HTMLAudioElement | null>(null)
 
-  // Gestion du décompte
   useEffect(() => {
     if (isRunning && timeLeft > 0) {
       intervalRef.current = setInterval(() => {
         setTimeLeft((prev) => {
-          if (prev <= 1000) {
+          const newTime = prev - 1000;
+          
+          if (newTime === 1000 * 60 * 10) {
+            playTenMinutesLeft();
+          }
+          if (newTime === 1000 * 60 * 5) {
+            playFiveMinutesLeft();
+          }
+          if (newTime <= 0) {
+            playDing();
             setIsRunning(false);
             return 0;
           }
-          return prev - 1000;
+          
+          return newTime;
         });
       }, 1000);
     } else {
@@ -33,7 +45,28 @@ export default function CountdownTimer(props: {initialMilliseconds:number}) {
         clearInterval(intervalRef.current);
       }
     };
-  }, [isRunning, timeLeft]);
+  }, [isRunning]);
+  
+  const playDing = () => {
+    if (ringRef.current) {
+      ringRef.current.currentTime = 0
+      ringRef.current.play()
+    }
+  }
+
+  const playFiveMinutesLeft = () => {
+    if (fiveMinutesLeftRef.current) {
+      fiveMinutesLeftRef.current.currentTime = 0
+      fiveMinutesLeftRef.current.play()
+    }
+  }
+  
+  const playTenMinutesLeft = () => {
+    if (tenMinutesLeftRef.current) {
+      tenMinutesLeftRef.current.currentTime = 0
+      tenMinutesLeftRef.current.play()
+    }
+  }
 
   const isFinished = timeLeft === 0;
 
@@ -41,6 +74,9 @@ export default function CountdownTimer(props: {initialMilliseconds:number}) {
     <div className="timer-container">
       {/* Affichage du temps */}
       <ShowTimer {...{isFinished, timeLeft}} />
+      <audio ref={ringRef} src="/mp3/ring.mp3" preload="auto" />
+      <audio ref={fiveMinutesLeftRef} src="/mp3/5_minutes_left.mp3" preload="auto" />
+      <audio ref={tenMinutesLeftRef} src="/mp3/10_minutes_left.mp3" preload="auto" />
 
       {/* Affichage des boutons de controle */}
       <Controls
@@ -55,8 +91,8 @@ export default function CountdownTimer(props: {initialMilliseconds:number}) {
       />
       
       {isFinished && 
-        <p className="timer-message">
-          Temps écoulé !
+        <p className="timer-message text-center">
+          Temps écoulé ! Il vous reste 5 tours à jouer.
         </p>
       }
     </div>

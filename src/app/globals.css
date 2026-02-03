@@ -263,7 +263,7 @@ p{
 
 /* Message de fin */
 .timer-message {
-  color: #ef4444;
+  color: white;
   font-weight: 600;
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   font-size: 1rem;
