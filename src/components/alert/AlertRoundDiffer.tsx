@@ -2,7 +2,7 @@
 import { calculRound } from '@/hooks/manageTournament'
 import { useConfigStore } from '@/stores/useConfigStore'
 import { usePlayerStore } from '@/stores/usePlayerStore'
-import Alert from '@/ui/Alert/Alert'
+import Alert from '@/ui/alert/Alert'
 import { useEffect, useState } from 'react'
 
 function AlertRoundDiffer() {
