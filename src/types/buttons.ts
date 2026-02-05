@@ -5,6 +5,7 @@ export type LongPressButtonProps = {
   delay: number;
   handleFunction: Function;
   className?: string;
+  ariaLabel?: string;
 }
 
 export type LinkLaunchTournementProps = {

@@ -92,11 +92,12 @@ const ItemPlayer = (props: Player) => {
                     {pseudo}
                 </button>}
             <div className="flex">
-                <button className="btn-icon" onClick={() => setEditMode(true)}><ModeEditIcon /></button>
+                <button className="btn-icon" onClick={() => setEditMode(true)} aria-label="Modifier le pseudo"><ModeEditIcon /></button>
                 <Longpressbutton
-                    className="btn-icon" 
+                    className="btn-icon"
                     delay={500}
-                    handleFunction={suppress}>
+                    handleFunction={suppress}
+                    ariaLabel="Maintenir pour supprimer le joueur">
                     <DeleteIcon />
                 </Longpressbutton>
             </div>

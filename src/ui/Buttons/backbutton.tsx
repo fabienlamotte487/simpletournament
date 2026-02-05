@@ -10,10 +10,11 @@ function Backbutton() {
     }
 
     return (
-        <button 
-            type="button" 
-            className={`btn-icon cercled`} 
-            onClick={handleBack}>
+        <button
+            type="button"
+            className={`btn-icon cercled`}
+            onClick={handleBack}
+            aria-label="Retour à la page précédente">
             <ArrowBackIcon />
         </button>
     )

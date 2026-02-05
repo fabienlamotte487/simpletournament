@@ -2,7 +2,7 @@ import { LongPressButtonProps } from "@/src/types/buttons";
 import { useRef, useState } from "react";
 
 function Longpressbutton(props: LongPressButtonProps) {
-  const {children, delay, handleFunction, className} = props;
+  const {children, delay, handleFunction, className, ariaLabel} = props;
   const [isPressed, setIsPressed] = useState(false)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -32,6 +32,7 @@ function Longpressbutton(props: LongPressButtonProps) {
       onTouchEnd={handleEnd}
       onTouchCancel={handleEnd}
       onContextMenu={(e) => e.preventDefault()}
+      aria-label={ariaLabel}
     >
     {children}</button>
   )
