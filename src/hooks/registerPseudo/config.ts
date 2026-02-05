@@ -5,5 +5,7 @@ export const ALREADY_TAKEN_PSEUDO = "Ce pseudo existe déjà";
 export const INVALID_ERROR_MESSAGE = "Le pseudo rentré ne doit contenir que des chiffres et des lettres !";
 export const MAX_LENGTH_PSEUDO = 50;
 export const MIN_LENGTH_PSEUDO = 2;
-export const REGEX_PSEUDO = /^[a-zA-ZÀ-ÿ0-9 '-]+$/;
-export const ANTI_REGEX_PSEUDO = /[^a-zA-ZÀ-ÿ0-9 '-]/g;
+
+const ALLOWED_CHARS = "a-zA-ZÀ-ÿ0-9 '\\-";
+export const REGEX_PSEUDO = new RegExp(`^[${ALLOWED_CHARS}]+$`);
+export const ANTI_REGEX_PSEUDO = new RegExp(`[^${ALLOWED_CHARS}]`, 'g');
