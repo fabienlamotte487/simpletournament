@@ -1,11 +1,27 @@
 import { SCORE_CONFIG } from "@/src/config/score";
 import { Player, ScoresObject } from "@/src/types/tournament";
 
+/**
+ * Valide les scores d'une ronde de tournoi.
+ *
+ * @param scores - Objet contenant les scores du formulaire {playerId-score: value}
+ * @returns Résultat de validation avec points attribués
+ *
+ * @example
+ * const result = checkScore({'alice-score': '2', 'bob-score': '1'})
+ * // { isValid: true, data: { alice: 3, bob: 0 } }
+ */
 export const checkScore = (scores: ScoresObject) => {
     let restructuredMatch = formatScores(scores);
     return checkMatchs(restructuredMatch);
 }
 
+/**
+ * Transforme les scores du formulaire en structure interne.
+ *
+ * @param scores - Scores bruts du formulaire
+ * @returns Tableau de paires [Player, Player] avec scores parsés
+ */
 export const formatScores = (scores: ScoresObject) => {
     let arrayScores = Object.entries(scores);
     const result = [];

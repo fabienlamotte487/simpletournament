@@ -1,6 +1,14 @@
 import { SCORE_CONFIG } from "@/src/config/score";
 import { MatchResults, TournamentPlayer, TournamentPlayerPair } from "@/src/types/tournament";
 
+/**
+ * Prépare les données de fin de ronde pour mise à jour du tournoi.
+ * Attribue les points aux joueurs selon les résultats.
+ *
+ * @param matchs - Paires de joueurs de la ronde
+ * @param result - Résultats des matchs { pseudo: points }
+ * @returns Joueurs mis à jour + historique des matchs
+ */
 export const prepareData = (matchs: TournamentPlayerPair[], result: MatchResults) => {
     let playersUpdated: TournamentPlayer[] = [];
     let matches = [...matchs];

@@ -2,6 +2,18 @@
 
 type SortOrder = 'ASC' | 'DESC'
 
+/**
+ * Trie un tableau d'objets par une propriété donnée.
+ * Gère les types : string, number, boolean, Date.
+ *
+ * @param items - Tableau à trier
+ * @param property - Clé de tri
+ * @param order - 'ASC' (défaut) ou 'DESC'
+ * @returns Nouveau tableau trié (immutable)
+ *
+ * @example
+ * sortBy(players, 'matchPoints', 'DESC')
+ */
 export function sortBy<T>(
   items: T[], 
   property: keyof T, 

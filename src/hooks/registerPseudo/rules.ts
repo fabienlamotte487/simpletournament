@@ -1,5 +1,14 @@
 import { ANTI_REGEX_PSEUDO, EMPTY_ERROR_MESSAGE, INVALID_ERROR_MESSAGE, MAX_LENGTH_PSEUDO, MIN_LENGTH_PSEUDO, REGEX_PSEUDO, TOO_LONG_ERROR_MESSAGE, TOO_SHORT_ERROR_MESSAGE } from "./config";
 
+/**
+ * Nettoie une entrée utilisateur pour éviter les injections.
+ * - Supprime les caractères non autorisés
+ * - Normalise les espaces multiples
+ * - Tronque à 50 caractères
+ *
+ * @param value - Valeur brute
+ * @returns Valeur nettoyée
+ */
 export function sanitizeInput(value: string){
     return value
     .replace(ANTI_REGEX_PSEUDO, "")
@@ -8,6 +17,12 @@ export function sanitizeInput(value: string){
     .slice(0, MAX_LENGTH_PSEUDO);
 }
 
+/**
+ * Vérifie qu'un pseudo respecte les règles métier.
+ *
+ * @param value - Pseudo déjà sanitizé
+ * @returns Objet { isValid, message, value }
+ */
 export function checkInputValue(value: string){
     let response = {
         isValid: false,

@@ -1,5 +1,20 @@
 import { TournamentPlayer } from "@/src/types/tournament";
 
+/**
+ * Algorithme d'appariement suisse pour tournois TCG.
+ *
+ * Règles appliquées :
+ * - Groupe les joueurs par score (les meilleurs ensemble)
+ * - Évite les rematches quand possible
+ * - Assigne un bye au joueur le plus faible n'en ayant pas encore eu
+ *
+ * @param players - Liste des joueurs du tournoi triés par score
+ * @returns Tableau de paires [joueur1, joueur2 | null]. null = bye
+ *
+ * @example
+ * const matchs = apairying(tournamentPlayers)
+ * // [[Alice, Bob], [Charlie, Diana], [Eve, null]]
+ */
 export const apairying = (players:TournamentPlayer[]):[TournamentPlayer, TournamentPlayer | null][] => {
     if (players.length === 0) {
         return [];
