@@ -2,11 +2,11 @@ export type AlertPropsType = {
     type : "DANGER" | "WARNING"
     text: string
     closeAlert?: {
-        function: Function;
+        function: () => void;
         message: string;
     }
     actionToApply?: {
-        function: Function;
+        function: () => void;
         message: string;
     }
 }

@@ -21,16 +21,20 @@ function ItemTournamentTable(props:tournamentTableProps) {
                     max={2}
                 />
             </div>
-            <div className='text-right w-full player'>
-                {player2.pseudo}
-                <InputNumber 
-                    value={pointPlayer2}
-                    setInput={setPointPlayer2}
-                    name={`${player2.pseudo}-score`}
-                    range={1} 
-                    max={2}
-                />
-            </div>
+            {player2 ? (
+                <div className='text-right w-full player'>
+                    {player2.pseudo}
+                    <InputNumber
+                        value={pointPlayer2}
+                        setInput={setPointPlayer2}
+                        name={`${player2.pseudo}-score`}
+                        range={1}
+                        max={2}
+                    />
+                </div>
+            ) : (
+                <div className='text-right w-full player'>Bye</div>
+            )}
         </li>
     )
 }

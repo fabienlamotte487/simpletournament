@@ -8,6 +8,7 @@ function page() {
   const {tournament, updateTournament, } = useTournamentStore()
 
   function launchMatchs(){
+    if (!tournament) return
     updateTournament(tournament, {
       currentRoundPlayers: tournament.players
     })

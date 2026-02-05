@@ -22,10 +22,10 @@ export const checkScore = (scores: ScoresObject) => {
  * @param scores - Scores bruts du formulaire
  * @returns Tableau de paires [Player, Player] avec scores parsés
  */
-export const formatScores = (scores: ScoresObject) => {
+export const formatScores = (scores: ScoresObject): [Player, Player][] => {
     let arrayScores = Object.entries(scores);
-    const result = [];
-    
+    const result: [Player, Player][] = [];
+
     for(let x = 0; x < arrayScores.length; x += 2){
         let player1 = formatPlayerScore(arrayScores[x]);
         let player2 = formatPlayerScore(arrayScores[x+1]);

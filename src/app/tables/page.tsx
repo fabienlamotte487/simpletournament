@@ -2,6 +2,7 @@
 import Tables from "@/src/components/lists/tournamentTable/Tables"
 import { CLASSEMENT, PLAYGROUND } from "@/src/config/paths";
 import { checkScore } from "@/src/hooks/manageScore";
+import { ScoresObject, Tournament } from "@/src/types/tournament";
 import { prepareData } from "@/src/hooks/manageScore/prepareData";
 import { apairying } from "@/src/hooks/preparePlayers/apairying";
 import { useTournamentStore } from "@/src/stores/useTournamentStore";
@@ -26,12 +27,12 @@ function page() {
   );
   const milliseconds = tournament?.config.roundDuration * 60 * 1000;
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitError("");
 
     const formData = new FormData(e.currentTarget);
-    const values = Object.fromEntries(formData.entries());
+    const values = Object.fromEntries(formData.entries()) as ScoresObject;
     const {isValid, message, data} = checkScore(values)
 
     if(!isValid){
@@ -41,9 +42,13 @@ function page() {
     setIsSubmitting(true);
 
     const preparedDatas = prepareData(matchs, data);
-    const tournamentData = {
+    const newRound = {
+      roundNumber: tournament.rounds.length + 1,
+      matches: preparedDatas.matches
+    };
+    const tournamentData: Partial<Tournament> = {
       players: preparedDatas.players,
-      rounds: [...tournament.rounds, preparedDatas.matches]
+      rounds: [...tournament.rounds, newRound]
     }
     
     if(tournament.rounds.length+1 === tournament.config.roundNumber){

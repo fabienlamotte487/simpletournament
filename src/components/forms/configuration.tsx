@@ -23,7 +23,7 @@ function Configuration() {
     const [winPoints, setWinPoints] = useState<number>(config.winPoints);
     const [lossPoints, setLossPoints] = useState<number>(config.lossPoints);
     const [drawPoints, setDrawPoints] = useState<number>(config.drawPoints);
-    const firstChildRef = useRef(null);
+    const firstChildRef = useRef<HTMLFormElement>(null);
     const [topOffset, setTopOffset] = useState(1000);
     const [isConfigOpened, setIsConfigOpened] = useState(false);
     const currentPlayers = players.filter(p => p.currentPlayer);
@@ -67,13 +67,13 @@ function Configuration() {
             setTopOffset(0)
             setIsConfigOpened(true)
         } else {
-            setTopOffset(firstChildRef.current.offsetHeight)
+            if (firstChildRef.current) setTopOffset(firstChildRef.current.offsetHeight)
             setIsConfigOpened(false)
         }
     }
 
     function closeConfig(){
-        setTopOffset(firstChildRef.current.offsetHeight)
+        if (firstChildRef.current) setTopOffset(firstChildRef.current.offsetHeight)
         setIsConfigOpened(false)
     }
 

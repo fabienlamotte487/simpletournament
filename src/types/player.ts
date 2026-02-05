@@ -1,4 +1,4 @@
-import { Ref } from "react";
+import { FormEventHandler, Ref } from "react";
 
 export type Player = {
   id: string;
@@ -17,10 +17,10 @@ export type PlayerState = {
 }
 
 export type itemPlayerEditMode = {
-  edit: Function;
-  setPseudoEdited: Function;
+  edit: FormEventHandler<HTMLFormElement>;
+  setPseudoEdited: (value: string) => void;
   pseudoEditRef: Ref<HTMLInputElement>;
   pseudoEdited: string;
   errorMessage: string;
-  cancelEdit: Function;
+  cancelEdit: () => void;
 }

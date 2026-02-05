@@ -5,7 +5,7 @@ function TitleRound() {
     const {tournament} = useTournamentStore()
 
     return (
-        <h1>Ronde n°{tournament?.rounds?.length + 1}</h1>
+        <h1>Ronde n°{(tournament?.rounds?.length ?? 0) + 1}</h1>
     )
 }
 

@@ -53,7 +53,7 @@ export type TablesProps = {
   matchs: TournamentPlayerPair[]
 }
 
-export type ScoresObject = [string, string | number];
+export type ScoresObject = Record<string, string | number>;
 
 export type MatchResults = Record<string, number>;
 
