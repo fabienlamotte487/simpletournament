@@ -29,12 +29,17 @@ export const useTournamentStore = create<TournamentState>()(
           const tournamentToUpdate = { ...tournament, ...data };
 
           return {
-            tournaments: state.tournaments.map(t => 
+            tournaments: state.tournaments.map(t =>
               t.id === tournament.id ? tournamentToUpdate : t
             ),
             tournament: tournamentToUpdate
           }
-        })
+        }),
+
+        deleteTournament: (tournamentId) => set((state) => ({
+          tournaments: state.tournaments.filter(t => t.id !== tournamentId),
+          tournament: state.tournament?.id === tournamentId ? null : state.tournament
+        }))
       }),
       {
         name: 'mtg-tournament-tournaments', // LocalStorage key

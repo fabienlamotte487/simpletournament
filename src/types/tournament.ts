@@ -42,6 +42,7 @@ export type TournamentState = {
   addTournament: (tournament: Tournament) => void;
   clearUnusedTournaments: () => void;
   updateTournament: (tournament: Tournament, data: Partial<Tournament>) => void;
+  deleteTournament: (tournamentId: string) => void;
 }
 
 export type tournamentTableProps = {

@@ -2,18 +2,18 @@ import AddNewPlayer from "@/src/components/forms/addNewPlayer";
 import AllPlayers from "@/src/components/lists/allPlayer/allPlayers";
 import TournamentPlayers from "../components/lists/tournamentPlayer/tournamentPlayers";
 import LinkLaunchTournament from "../ui/Buttons/LinkLaunchTournament";
-import { PLAYGROUND } from "../config/paths";
+import { HISTORY, PLAYGROUND } from "../config/paths";
 import ShapePage from "../ui/Page/ShapePage";
 import Configuration from "../components/forms/configuration";
-import Alert from "../ui/Alert/Alert";
 import AlertRoundDiffer from "../components/alert/AlertRoundDiffer";
-import AlertEndRound from "../components/alert/AlertEndRound";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
       <header className="mt-30">
         <h1>Mythic Tournament</h1>
+        <Link href={HISTORY} className="btn-secondary">Historique</Link>
       </header>
       <main>
         <ShapePage>

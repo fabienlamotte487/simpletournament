@@ -23,7 +23,7 @@ function Longpressbutton(props: LongPressButtonProps) {
   }
 
   return (
-    <button 
+    <button
       className={`${className} ${isPressed ? 'opacity-70' : ''}`}
       onMouseDown={handleStart}
       onMouseUp={handleEnd}
@@ -31,6 +31,7 @@ function Longpressbutton(props: LongPressButtonProps) {
       onTouchStart={handleStart}
       onTouchEnd={handleEnd}
       onTouchCancel={handleEnd}
+      onContextMenu={(e) => e.preventDefault()}
     >
     {children}</button>
   )
