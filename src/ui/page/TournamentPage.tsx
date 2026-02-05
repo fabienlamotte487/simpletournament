@@ -1,7 +1,7 @@
 'use client'
 import { TournamentPageProps } from '@/types/page';
-import Backbutton from '../Buttons/backbutton';
-import TitleRound from '../Title/TitleRound';
+import Backbutton from '../buttons/backbutton';
+import TitleRound from '../title/TitleRound';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 

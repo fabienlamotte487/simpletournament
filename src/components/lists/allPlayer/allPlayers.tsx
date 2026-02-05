@@ -5,7 +5,7 @@ import { useEffect, useState, useMemo } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import ItemPlayer from "./itemPlayer";
 import { sortBy } from "@/hooks/sortBy";
-import InputText from "@/ui/Form/inputText";
+import InputText from "@/ui/form/inputText";
 
 function AllPlayers() {
   const { players } = usePlayerStore();

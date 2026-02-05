@@ -1,6 +1,6 @@
 import Classement from "@/components/lists/classement/Classement"
 import { HOMEPAGE } from "@/config/paths"
-import TournamentPage from "@/ui/Page/TournamentPage"
+import TournamentPage from "@/ui/page/TournamentPage"
 
 function page() {
   return (

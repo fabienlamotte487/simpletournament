@@ -2,10 +2,10 @@
 import { useParams, useRouter } from 'next/navigation'
 import { useTournamentStore } from '@/stores/useTournamentStore'
 import { HISTORY } from '@/config/paths'
-import TournamentPage from '@/ui/Page/TournamentPage'
+import TournamentPage from '@/ui/page/TournamentPage'
 import ClassementItem from '@/components/lists/classement/ClassementItem'
 import { sortBy } from '@/hooks/sortBy'
-import Longpressbutton from '@/ui/Buttons/longpressbutton'
+import Longpressbutton from '@/ui/buttons/longpressbutton'
 
 function HistoryDetail() {
     const { id } = useParams()

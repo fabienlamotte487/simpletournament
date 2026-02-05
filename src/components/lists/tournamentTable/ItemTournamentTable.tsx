@@ -1,5 +1,5 @@
 import { tournamentTableProps } from '@/types/tournament';
-import InputNumber from '@/ui/Form/inputNumber';
+import InputNumber from '@/ui/form/inputNumber';
 import { useState } from 'react';
 
 function ItemTournamentTable(props:tournamentTableProps) {

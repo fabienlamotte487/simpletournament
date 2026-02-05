@@ -1,5 +1,5 @@
 import React from 'react'
-import Backbutton from '../Buttons/backbutton';
+import Backbutton from '../buttons/backbutton';
 import { shapePageProps } from '@/types/page';
 
 function ShapePage(props:shapePageProps) {

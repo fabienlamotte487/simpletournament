@@ -1,6 +1,6 @@
 "use client"
 import { Player } from "@/types/player"
-import Longpressbutton from "@/ui/Buttons/longpressbutton";
+import Longpressbutton from "@/ui/buttons/longpressbutton";
 import { useEffect, useRef, useState } from "react";
 import { usePlayerStore } from "@/stores/usePlayerStore";
 import { registerPseudo } from "@/hooks/registerPseudo";

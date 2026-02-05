@@ -3,7 +3,7 @@ import { useRef, useState } from 'react'
 import { checkInputValue, sanitizeInput } from '../../hooks/registerPseudo/rules';
 import { usePlayerStore } from '@/stores/usePlayerStore'
 import { registerPseudo } from '@/hooks/registerPseudo'
-import InputText from '@/ui/Form/inputText'
+import InputText from '@/ui/form/inputText'
 import { ALREADY_TAKEN_PSEUDO } from '@/hooks/registerPseudo/config'
 import { calculRound } from '@/hooks/manageTournament'
 import { useConfigStore } from '@/stores/useConfigStore'

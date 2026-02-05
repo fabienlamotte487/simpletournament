@@ -1,7 +1,7 @@
 'use client'
 import { useTournamentStore } from '@/stores/useTournamentStore'
 import { HISTORY, HOMEPAGE } from '@/config/paths'
-import TournamentPage from '@/ui/Page/TournamentPage'
+import TournamentPage from '@/ui/page/TournamentPage'
 import Link from 'next/link'
 import { sortBy } from '@/hooks/sortBy'
 

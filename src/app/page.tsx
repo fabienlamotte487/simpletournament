@@ -1,9 +1,9 @@
 import AddNewPlayer from "@/components/forms/addNewPlayer";
 import AllPlayers from "@/components/lists/allPlayer/allPlayers";
 import TournamentPlayers from "../components/lists/tournamentPlayer/tournamentPlayers";
-import LinkLaunchTournament from "../ui/Buttons/LinkLaunchTournament";
+import LinkLaunchTournament from "../ui/buttons/LinkLaunchTournament";
 import { HISTORY, PLAYGROUND } from "../config/paths";
-import ShapePage from "../ui/Page/ShapePage";
+import ShapePage from "../ui/page/ShapePage";
 import Configuration from "../components/forms/configuration";
 import AlertRoundDiffer from "../components/alert/AlertRoundDiffer";
 import Link from "next/link";

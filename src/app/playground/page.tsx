@@ -2,7 +2,7 @@
 import TournamentClassementPlayer from "@/components/lists/tournamentClassementPlayer/tournamentClassementPlayer"
 import { TABLES } from "@/config/paths"
 import { useTournamentStore } from "@/stores/useTournamentStore"
-import TournamentPage from "@/ui/Page/TournamentPage"
+import TournamentPage from "@/ui/page/TournamentPage"
 
 function page() {
   const {tournament, updateTournament, } = useTournamentStore()
