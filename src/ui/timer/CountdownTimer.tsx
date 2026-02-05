@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef } from 'react';
 import ShowTimer from './ShowTimer';
 import Controls from './Controls';
-import ProgressBar from './ProgressBar';
 
 export default function CountdownTimer(props: {initialMilliseconds:number}) {
   const { initialMilliseconds = 60000 } = props
