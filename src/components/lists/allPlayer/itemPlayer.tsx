@@ -47,14 +47,16 @@ const ItemPlayer = (props: Player) => {
     const edit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setErrorMessage("")
-        
-        const response = registerPseudo(pseudoEdited);
-        setErrorMessage(response.message);
 
-        if(response.isValid){
-            updatePlayer(id, {pseudo : response.value})
-            setEditMode(false)
+        const response = registerPseudo(pseudoEdited);
+
+        if(!response.isValid){
+            setErrorMessage(response.message);
+            return;
         }
+
+        updatePlayer(id, {pseudo: response.value})
+        setEditMode(false)
     }
 
     const cancelEdit = () => {

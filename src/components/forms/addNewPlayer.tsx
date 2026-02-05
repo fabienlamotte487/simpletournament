@@ -19,19 +19,24 @@ export default function AddNewPlayer() {
         setError("");
 
         const response = registerPseudo(pseudo);
-        setError(response.message);
 
-        const isPseudoAlreadyTaken = players.filter(player => player.pseudo.toLowerCase() === response.value.toLowerCase()).length >= 1;
+        if(!response.isValid){
+            setError(response.message);
+            return;
+        }
+
+        const isPseudoAlreadyTaken = players.some(
+            player => player.pseudo.toLowerCase() === response.value.toLowerCase()
+        );
+
         if(isPseudoAlreadyTaken){
             setError(ALREADY_TAKEN_PSEUDO);
-            response.isValid = false;
+            return;
         }
 
-        if(response.isValid){
-            addNewPlayer(response.value);
-            setPseudo("");
-            ref.current?.focus();
-        }
+        addNewPlayer(response.value);
+        setPseudo("");
+        ref.current?.focus();
     }
 
     return (
