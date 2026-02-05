@@ -15,6 +15,7 @@ function page() {
   const {tournament, updateTournament} = useTournamentStore();
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   if(!tournament || tournament.currentRoundPlayers.length === 0){
     return null;
   }
@@ -27,12 +28,14 @@ function page() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    setSubmitError("");
 
     const formData = new FormData(e.currentTarget);
     const values = Object.fromEntries(formData.entries());
     const {isValid, message, data} = checkScore(values)
-    
+
     if(!isValid){
+      setSubmitError(message);
       return;
     }
     setIsSubmitting(true);
@@ -61,6 +64,7 @@ function page() {
   return (
     <form onSubmit={onSubmit} className={`write-score-page ${isSubmitting ? "is-leaving" : ""}`}>
       <TournamentPage formSubmit title="Enregistrement des résultats" link={{title: "Enregistrer les résultats", target: CLASSEMENT}}>
+        {submitError && <p className="error-message">{submitError}</p>}
         <CountdownTimer initialMilliseconds={milliseconds} />
         <Tables matchs={matchs} />
       </TournamentPage>

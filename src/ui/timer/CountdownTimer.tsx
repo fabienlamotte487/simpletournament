@@ -47,26 +47,22 @@ export default function CountdownTimer(props: {initialMilliseconds:number}) {
     };
   }, [isRunning]);
   
-  const playDing = () => {
-    if (ringRef.current) {
-      ringRef.current.currentTime = 0
-      ringRef.current.play()
+  const playAudio = (audioRef: React.RefObject<HTMLAudioElement | null>) => {
+    if (!audioRef.current) return
+
+    try {
+      audioRef.current.currentTime = 0
+      audioRef.current.play().catch((error) => {
+        console.warn('Lecture audio impossible:', error.message)
+      })
+    } catch (error) {
+      console.warn('Erreur audio:', error)
     }
   }
 
-  const playFiveMinutesLeft = () => {
-    if (fiveMinutesLeftRef.current) {
-      fiveMinutesLeftRef.current.currentTime = 0
-      fiveMinutesLeftRef.current.play()
-    }
-  }
-  
-  const playTenMinutesLeft = () => {
-    if (tenMinutesLeftRef.current) {
-      tenMinutesLeftRef.current.currentTime = 0
-      tenMinutesLeftRef.current.play()
-    }
-  }
+  const playDing = () => playAudio(ringRef)
+  const playFiveMinutesLeft = () => playAudio(fiveMinutesLeftRef)
+  const playTenMinutesLeft = () => playAudio(tenMinutesLeftRef)
 
   const isFinished = timeLeft === 0;
 
