@@ -1,13 +1,13 @@
 "use client"
-import Tables from "@/src/components/lists/tournamentTable/Tables"
-import { CLASSEMENT, PLAYGROUND } from "@/src/config/paths";
-import { checkScore } from "@/src/hooks/manageScore";
-import { ScoresObject, Tournament } from "@/src/types/tournament";
-import { prepareData } from "@/src/hooks/manageScore/prepareData";
-import { apairying } from "@/src/hooks/preparePlayers/apairying";
-import { useTournamentStore } from "@/src/stores/useTournamentStore";
-import TournamentPage from "@/src/ui/Page/TournamentPage";
-import CountdownTimer from "@/src/ui/Timer/CountdownTimer";
+import Tables from "@/components/lists/tournamentTable/Tables"
+import { CLASSEMENT, PLAYGROUND } from "@/config/paths";
+import { checkScore } from "@/hooks/manageScore";
+import { ScoresObject, Tournament } from "@/types/tournament";
+import { prepareData } from "@/hooks/manageScore/prepareData";
+import { apairying } from "@/hooks/preparePlayers/apairying";
+import { useTournamentStore } from "@/stores/useTournamentStore";
+import TournamentPage from "@/ui/Page/TournamentPage";
+import CountdownTimer from "@/ui/Timer/CountdownTimer";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useMemo } from "react";

@@ -1,6 +1,6 @@
 'use client'
 
-import { usePlayerStore } from "@/src/stores/usePlayerStore"
+import { usePlayerStore } from "@/stores/usePlayerStore"
 import ItemTournamentPlayers from "./itemTournamentPlayers";
 
 function TournamentPlayers() {

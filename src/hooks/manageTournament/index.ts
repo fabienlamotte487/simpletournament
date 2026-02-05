@@ -1,5 +1,5 @@
-import { Player } from "@/src/types/player";
-import { TournamentConfig } from "@/src/types/tournament";
+import { Player } from "@/types/player";
+import { TournamentConfig } from "@/types/tournament";
 import { shufflePlayers } from "../preparePlayers/shufflePlayers";
 import { formatPlayer } from "../preparePlayers/formatPlayer";
 

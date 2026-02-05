@@ -1,4 +1,4 @@
-import { InputNumberType } from "@/src/types/form"
+import { InputNumberType } from "@/types/form"
 import ArrowLeftRoundedIcon from '@mui/icons-material/ArrowLeftRounded';
 import ArrowRightRoundedIcon from '@mui/icons-material/ArrowRightRounded';
 

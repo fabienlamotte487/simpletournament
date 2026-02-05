@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { InputTextType } from "../../types/form";
 import CancelIcon from '@mui/icons-material/Cancel';
-import { colors } from "@/src/constants/config";
+import { colors } from "@/constants/config";
 
 const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
   const {value, label, name, setInput, deletable, classname} = props;

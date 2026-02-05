@@ -1,5 +1,5 @@
-import { Player } from "@/src/types/player";
-import { TournamentPlayer } from "@/src/types/tournament";
+import { Player } from "@/types/player";
+import { TournamentPlayer } from "@/types/tournament";
 
 export const formatPlayer = (player: Player):TournamentPlayer => {
     return {

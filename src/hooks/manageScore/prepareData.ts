@@ -1,5 +1,5 @@
-import { SCORE_CONFIG } from "@/src/config/score";
-import { MatchResults, TournamentPlayer, TournamentPlayerPair } from "@/src/types/tournament";
+import { SCORE_CONFIG } from "@/config/score";
+import { MatchResults, TournamentPlayer, TournamentPlayerPair } from "@/types/tournament";
 
 /**
  * Prépare les données de fin de ronde pour mise à jour du tournoi.

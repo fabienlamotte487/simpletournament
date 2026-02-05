@@ -1,9 +1,9 @@
 "use client"
-import { Player } from "@/src/types/player"
-import Longpressbutton from "@/src/ui/Buttons/longpressbutton";
+import { Player } from "@/types/player"
+import Longpressbutton from "@/ui/Buttons/longpressbutton";
 import { useEffect, useRef, useState } from "react";
-import { usePlayerStore } from "@/src/stores/usePlayerStore";
-import { registerPseudo } from "@/src/hooks/registerPseudo";
+import { usePlayerStore } from "@/stores/usePlayerStore";
+import { registerPseudo } from "@/hooks/registerPseudo";
 import { ItemPlayerEditMode } from "./itemPlayerEditMode";
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteIcon from '@mui/icons-material/Delete';

@@ -1,6 +1,6 @@
-import Classement from "@/src/components/lists/classement/Classement"
-import { HOMEPAGE } from "@/src/config/paths"
-import TournamentPage from "@/src/ui/Page/TournamentPage"
+import Classement from "@/components/lists/classement/Classement"
+import { HOMEPAGE } from "@/config/paths"
+import TournamentPage from "@/ui/Page/TournamentPage"
 
 function page() {
   return (

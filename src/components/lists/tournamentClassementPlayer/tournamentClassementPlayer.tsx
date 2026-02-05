@@ -1,8 +1,8 @@
-import { useTournamentStore } from "@/src/stores/useTournamentStore";
+import { useTournamentStore } from "@/stores/useTournamentStore";
 import ItemTournamentClassementPlayer from "./itemTournamentClassementPlayer";
-import { apairying } from "@/src/hooks/preparePlayers/apairying";
+import { apairying } from "@/hooks/preparePlayers/apairying";
 import ShuffleOnIcon from "@mui/icons-material/ShuffleOn";
-import { shufflePlayers } from "@/src/hooks/preparePlayers/shufflePlayers";
+import { shufflePlayers } from "@/hooks/preparePlayers/shufflePlayers";
 
 function TournamentClassementPlayer() {
     const { tournament, updateTournament } = useTournamentStore();

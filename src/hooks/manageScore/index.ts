@@ -1,5 +1,5 @@
-import { SCORE_CONFIG } from "@/src/config/score";
-import { Player, ScoresObject } from "@/src/types/tournament";
+import { SCORE_CONFIG } from "@/config/score";
+import { Player, ScoresObject } from "@/types/tournament";
 
 /**
  * Valide les scores d'une ronde de tournoi.

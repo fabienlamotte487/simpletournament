@@ -1,6 +1,6 @@
 "use client"
-import { useTournamentStore } from "@/src/stores/useTournamentStore"
-import { sortBy } from "@/src/hooks/sortBy"
+import { useTournamentStore } from "@/stores/useTournamentStore"
+import { sortBy } from "@/hooks/sortBy"
 import ClassementItem from "./ClassementItem"
 
 function Classement() {

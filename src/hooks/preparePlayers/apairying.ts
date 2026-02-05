@@ -1,4 +1,4 @@
-import { TournamentPlayer } from "@/src/types/tournament";
+import { TournamentPlayer } from "@/types/tournament";
 
 /**
  * Algorithme d'appariement suisse pour tournois TCG.

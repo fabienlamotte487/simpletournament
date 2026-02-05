@@ -1,4 +1,4 @@
-import { ClassementItemProps } from "@/src/types/tournament";
+import { ClassementItemProps } from "@/types/tournament";
 
 function ClassementItem(props: ClassementItemProps) {
     const {player, index} = props;

@@ -1,5 +1,5 @@
-import AddNewPlayer from "@/src/components/forms/addNewPlayer";
-import AllPlayers from "@/src/components/lists/allPlayer/allPlayers";
+import AddNewPlayer from "@/components/forms/addNewPlayer";
+import AllPlayers from "@/components/lists/allPlayer/allPlayers";
 import TournamentPlayers from "../components/lists/tournamentPlayer/tournamentPlayers";
 import LinkLaunchTournament from "../ui/Buttons/LinkLaunchTournament";
 import { HISTORY, PLAYGROUND } from "../config/paths";

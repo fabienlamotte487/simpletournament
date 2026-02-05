@@ -1,11 +1,11 @@
 "use client"
-import { usePlayerStore } from '@/src/stores/usePlayerStore'
-import { LinkLaunchTournementProps } from '@/src/types/buttons'
-import { createTournament } from "@/src/hooks/manageTournament";
-import { useTournamentStore } from '@/src/stores/useTournamentStore';
+import { usePlayerStore } from '@/stores/usePlayerStore'
+import { LinkLaunchTournementProps } from '@/types/buttons'
+import { createTournament } from "@/hooks/manageTournament";
+import { useTournamentStore } from '@/stores/useTournamentStore';
 import { useRouter } from 'next/navigation';
-import { useConfigStore } from '@/src/stores/useConfigStore';
-import { PLAYGROUND } from '@/src/config/paths';
+import { useConfigStore } from '@/stores/useConfigStore';
+import { PLAYGROUND } from '@/config/paths';
 
 const LinkLaunchTournament = (props:LinkLaunchTournementProps) => {
   const {children, link} = props

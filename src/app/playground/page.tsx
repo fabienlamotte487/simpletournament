@@ -1,8 +1,8 @@
 'use client'
-import TournamentClassementPlayer from "@/src/components/lists/tournamentClassementPlayer/tournamentClassementPlayer"
-import { TABLES } from "@/src/config/paths"
-import { useTournamentStore } from "@/src/stores/useTournamentStore"
-import TournamentPage from "@/src/ui/Page/TournamentPage"
+import TournamentClassementPlayer from "@/components/lists/tournamentClassementPlayer/tournamentClassementPlayer"
+import { TABLES } from "@/config/paths"
+import { useTournamentStore } from "@/stores/useTournamentStore"
+import TournamentPage from "@/ui/Page/TournamentPage"
 
 function page() {
   const {tournament, updateTournament, } = useTournamentStore()

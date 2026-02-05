@@ -1,4 +1,4 @@
-import { LongPressButtonProps } from "@/src/types/buttons";
+import { LongPressButtonProps } from "@/types/buttons";
 import { useRef, useState } from "react";
 
 function Longpressbutton(props: LongPressButtonProps) {

@@ -1,11 +1,11 @@
 "use client"
-import { usePlayerStore } from "@/src/stores/usePlayerStore"
+import { usePlayerStore } from "@/stores/usePlayerStore"
 import { Modal } from "../../../ui/modal";
 import { useEffect, useState, useMemo } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import ItemPlayer from "./itemPlayer";
-import { sortBy } from "@/src/hooks/sortBy";
-import InputText from "@/src/ui/Form/inputText";
+import { sortBy } from "@/hooks/sortBy";
+import InputText from "@/ui/Form/inputText";
 
 function AllPlayers() {
   const { players } = usePlayerStore();
