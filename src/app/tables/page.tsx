@@ -64,8 +64,8 @@ function page() {
   return (
     <form onSubmit={onSubmit} className={`write-score-page ${isSubmitting ? "is-leaving" : ""}`}>
       <TournamentPage formSubmit title="Enregistrement des résultats" link={{title: "Enregistrer les résultats", target: CLASSEMENT}}>
-        {submitError && <p className="error-message">{submitError}</p>}
         <CountdownTimer initialMilliseconds={milliseconds} />
+        {submitError && <p className="error-message">{submitError}</p>}
         <Tables matchs={matchs} />
       </TournamentPage>
     </form>
