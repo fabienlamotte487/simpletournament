@@ -1,7 +1,7 @@
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import ClearIcon from '@mui/icons-material/Clear';
 import CheckIcon from '@mui/icons-material/Check';
-import { itemPlayerEditMode } from '@/src/types/player';
+import { itemPlayerEditMode } from '@/types/player'
 
 export const ItemPlayerEditMode = (props: itemPlayerEditMode) => {
     const {edit, setPseudoEdited, pseudoEditRef, pseudoEdited, errorMessage, cancelEdit} = props;

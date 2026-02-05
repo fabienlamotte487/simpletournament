@@ -1,11 +1,11 @@
 'use client'
 import { useParams, useRouter } from 'next/navigation'
-import { useTournamentStore } from '@/src/stores/useTournamentStore'
-import { HISTORY } from '@/src/config/paths'
-import TournamentPage from '@/src/ui/Page/TournamentPage'
-import ClassementItem from '@/src/components/lists/classement/ClassementItem'
-import { sortBy } from '@/src/hooks/sortBy'
-import Longpressbutton from '@/src/ui/Buttons/longpressbutton'
+import { useTournamentStore } from '@/stores/useTournamentStore'
+import { HISTORY } from '@/config/paths'
+import TournamentPage from '@/ui/Page/TournamentPage'
+import ClassementItem from '@/components/lists/classement/ClassementItem'
+import { sortBy } from '@/hooks/sortBy'
+import Longpressbutton from '@/ui/Buttons/longpressbutton'
 
 function HistoryDetail() {
     const { id } = useParams()

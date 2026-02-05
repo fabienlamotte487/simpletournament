@@ -1,4 +1,4 @@
-import { ShowTimerProps } from '@/src/types/countDownTimer'
+import { ShowTimerProps } from '@/types/countDownTimer'
 import React, { useCallback } from 'react'
 
 function ShowTimer(props:ShowTimerProps) {

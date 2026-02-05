@@ -1,12 +1,12 @@
 'use client'
 import { useRef, useState } from 'react'
 import { checkInputValue, sanitizeInput } from '../../hooks/registerPseudo/rules';
-import { usePlayerStore } from '@/src/stores/usePlayerStore';
-import { registerPseudo } from '@/src/hooks/registerPseudo';
-import InputText from '@/src/ui/Form/inputText';
-import { ALREADY_TAKEN_PSEUDO } from '@/src/hooks/registerPseudo/config';
-import { calculRound } from '@/src/hooks/manageTournament';
-import { useConfigStore } from '@/src/stores/useConfigStore';
+import { usePlayerStore } from '@/stores/usePlayerStore'
+import { registerPseudo } from '@/hooks/registerPseudo'
+import InputText from '@/ui/Form/inputText'
+import { ALREADY_TAKEN_PSEUDO } from '@/hooks/registerPseudo/config'
+import { calculRound } from '@/hooks/manageTournament'
+import { useConfigStore } from '@/stores/useConfigStore'
 
 export default function AddNewPlayer() {
     const [pseudo, setPseudo] = useState("");

@@ -1,6 +1,6 @@
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import DangerousIcon from '@mui/icons-material/Dangerous';
-import { AlertPropsType } from '@/src/types/alert';
+import { AlertPropsType } from '@/types/alert';
 
 function Alert(props: AlertPropsType) {
     const {type, text, closeAlert, actionToApply} = props;

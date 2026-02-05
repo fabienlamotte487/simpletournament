@@ -1,4 +1,4 @@
-import { TournamentPlayerPair } from '@/src/types/tournament';
+import { TournamentPlayerPair } from '@/types/tournament'
 import Image from 'next/image';
 
 function ItemTournamentClassementPlayer(props: TournamentPlayerPair) {

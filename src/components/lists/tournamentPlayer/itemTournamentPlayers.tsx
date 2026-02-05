@@ -1,6 +1,5 @@
-import { usePlayerStore } from '@/src/stores/usePlayerStore';
-import { Player } from '@/src/types/player'
-import DeleteIcon from '@mui/icons-material/Delete';
+import { usePlayerStore } from '@/stores/usePlayerStore';
+import { Player } from '@/types/player'
 import ClearIcon from '@mui/icons-material/Clear';
 
 function ItemTournamentPlayers(props: Player) {

@@ -1,5 +1,9 @@
-import { TablesProps } from '@/src/types/tournament';
+import { TournamentPlayerPair } from '@/types/tournament';
 import ItemTournamentTable from './ItemTournamentTable';
+
+type TablesProps = {
+  matchs: TournamentPlayerPair[]
+}
 
 function Tables({ matchs }: TablesProps) {
   return (

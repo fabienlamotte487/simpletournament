@@ -1,5 +1,5 @@
 "use client"
-import { useTournamentStore } from '@/src/stores/useTournamentStore'
+import { useTournamentStore } from '@/stores/useTournamentStore'
 
 function TitleRound() {
     const {tournament} = useTournamentStore()

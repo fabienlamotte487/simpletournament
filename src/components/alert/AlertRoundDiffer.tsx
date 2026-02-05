@@ -1,8 +1,8 @@
 "use client"
-import { calculRound } from '@/src/hooks/manageTournament'
-import { useConfigStore } from '@/src/stores/useConfigStore'
-import { usePlayerStore } from '@/src/stores/usePlayerStore'
-import Alert from '@/src/ui/Alert/Alert'
+import { calculRound } from '@/hooks/manageTournament'
+import { useConfigStore } from '@/stores/useConfigStore'
+import { usePlayerStore } from '@/stores/usePlayerStore'
+import Alert from '@/ui/Alert/Alert'
 import { useEffect, useState } from 'react'
 
 function AlertRoundDiffer() {

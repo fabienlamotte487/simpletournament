@@ -1,9 +1,9 @@
 'use client'
-import { useTournamentStore } from '@/src/stores/useTournamentStore'
-import { HISTORY, HOMEPAGE } from '@/src/config/paths'
-import TournamentPage from '@/src/ui/Page/TournamentPage'
+import { useTournamentStore } from '@/stores/useTournamentStore'
+import { HISTORY, HOMEPAGE } from '@/config/paths'
+import TournamentPage from '@/ui/Page/TournamentPage'
 import Link from 'next/link'
-import { sortBy } from '@/src/hooks/sortBy'
+import { sortBy } from '@/hooks/sortBy'
 
 function History() {
     const { tournaments } = useTournamentStore()
