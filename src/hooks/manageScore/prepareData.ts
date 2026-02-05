@@ -1,8 +1,8 @@
 import { SCORE_CONFIG } from "@/src/config/score";
-import { TournamentPlayer, TournamentPlayerPair } from "@/src/types/tournament";
+import { MatchResults, TournamentPlayer, TournamentPlayerPair } from "@/src/types/tournament";
 
-export const prepareData = (matchs: TournamentPlayerPair[], result: []) => {
-    let playersUpdated = [];
+export const prepareData = (matchs: TournamentPlayerPair[], result: MatchResults) => {
+    let playersUpdated: TournamentPlayer[] = [];
     let matches = [...matchs];
 
     for(const [p1, p2] of matchs){
@@ -10,11 +10,12 @@ export const prepareData = (matchs: TournamentPlayerPair[], result: []) => {
         let player2 = attributePoints(p2, p1, result);
 
         if(p2 === null){
-            playersUpdated.push(player1);
+            if(player1) playersUpdated.push(player1);
             continue;
         }
 
-        playersUpdated.push(player1, player2);
+        if(player1) playersUpdated.push(player1);
+        if(player2) playersUpdated.push(player2);
     }
 
     return {
@@ -23,7 +24,7 @@ export const prepareData = (matchs: TournamentPlayerPair[], result: []) => {
     };
 }
 
-const attributePoints = (player: TournamentPlayer, opponent: TournamentPlayer, result: []) => {
+const attributePoints = (player: TournamentPlayer | null, opponent: TournamentPlayer | null, result: MatchResults): TournamentPlayer | undefined => {
     if(player === null){
         return;
     }

@@ -19,12 +19,19 @@ export type TournamentConfig = {
   lossPoints: number;
 }
 
+export type TournamentPlayerPair = [TournamentPlayer, TournamentPlayer | null];
+
+export type Round = {
+  roundNumber: number;
+  matches: TournamentPlayerPair[];
+}
+
 export type Tournament = {
   id: string;
   created_at: Timestamp;
   finished_at: Timestamp | null;
   config: TournamentConfig;
-  rounds: [];
+  rounds: Round[];
   players: TournamentPlayer[];
   currentRoundPlayers: TournamentPlayer[];
 }
@@ -34,14 +41,20 @@ export type TournamentState = {
   tournament: Tournament | null;
   addTournament: (tournament: Tournament) => void;
   clearUnusedTournaments: () => void;
-  updateTournament: (tournament: Tournament, data: any) => void;
+  updateTournament: (tournament: Tournament, data: Partial<Tournament>) => void;
 }
 
 export type tournamentTableProps = {
   match: TournamentPlayerPair
 }
 
+export type TablesProps = {
+  matchs: TournamentPlayerPair[]
+}
+
 export type ScoresObject = [string, string | number];
+
+export type MatchResults = Record<string, number>;
 
 export interface Player {
   playerId: string;
@@ -51,10 +64,8 @@ export interface Player {
 export interface CheckResult {
   isValid: boolean;
   message: string;
-  data: [];
+  data: Player[];
 }
-
-export type TournamentPlayerPair = [TournamentPlayer, TournamentPlayer];
 
 export type ClassementItemProps = {
   player: TournamentPlayer;
