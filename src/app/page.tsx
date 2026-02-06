@@ -6,17 +6,17 @@ import { HISTORY, PLAYGROUND } from "../config/paths";
 import ShapePage from "../ui/page/ShapePage";
 import Configuration from "../components/forms/configuration";
 import AlertRoundDiffer from "../components/alert/AlertRoundDiffer";
-import Link from "next/link";
+import HistoryButton from "@/ui/buttons/HistoryButton";
 
 export default function Home() {
   return (
     <>
       <header className="mt-30">
         <h1>Mythic Tournament</h1>
-        <Link href={HISTORY} className="btn-secondary">Historique</Link>
       </header>
       <main>
         <ShapePage>
+          <HistoryButton />
           <Configuration />
           <AllPlayers />
           <AddNewPlayer />
