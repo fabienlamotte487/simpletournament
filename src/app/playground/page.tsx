@@ -5,13 +5,17 @@ import { apairying } from "@/hooks/preparePlayers/apairying"
 import { useTournamentStore } from "@/stores/useTournamentStore"
 import { TournamentPlayerPair } from "@/types/tournament"
 import TournamentPage from "@/ui/page/TournamentPage"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function page() {
   const {tournament, updateTournament} = useTournamentStore()
-  const [matchs, setMatchs] = useState<TournamentPlayerPair[]>(() =>
-    tournament ? apairying(tournament.players) : []
-  )
+  const [matchs, setMatchs] = useState<TournamentPlayerPair[]>([])
+
+  useEffect(() => {
+    if (tournament && tournament.players.length > 0 && matchs.length === 0) {
+      setMatchs(apairying(tournament.players))
+    }
+  }, [tournament])
 
   function launchMatchs(){
     if (!tournament) return
