@@ -26,7 +26,7 @@ function page() {
   }
 
   return (
-    <TournamentPage clickAction={launchMatchs} title="Présentation des matchs" link={{title: "Débuter la ronde", target: TABLES}}>
+    <TournamentPage showBackButton={false} clickAction={launchMatchs} title="Présentation des matchs" link={{title: "Débuter la ronde", target: TABLES}}>
       <TournamentClassementPlayer matchs={matchs} setMatchs={setMatchs} />
     </TournamentPage>
   )
