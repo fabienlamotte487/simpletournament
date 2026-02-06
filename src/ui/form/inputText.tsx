@@ -20,7 +20,7 @@ const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
           className={classList}
           id={name}
           onChange={e => setInput(e.target.value)}
-          onFocus={e => setTimeout(() => e.target.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300)}
+          onFocus={e => { if (window.matchMedia('(hover: none)').matches) setTimeout(() => e.target.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300) }}
           name={name}
           ref={ref}
           value={value} />
