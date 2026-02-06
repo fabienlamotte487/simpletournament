@@ -3,12 +3,30 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import ShowTimer from './ShowTimer';
 import Controls from './Controls';
 
+const TIMER_KEY = 'mtg-tournament-timer';
+
+function saveTimer(data: { endTime?: number; timeLeft?: number; isRunning: boolean }) {
+  try { localStorage.setItem(TIMER_KEY, JSON.stringify(data)); } catch {}
+}
+
+function clearTimer() {
+  try { localStorage.removeItem(TIMER_KEY); } catch {}
+}
+
+function loadTimer(): { endTime?: number; timeLeft?: number; isRunning: boolean } | null {
+  try {
+    const raw = localStorage.getItem(TIMER_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch { return null; }
+}
+
 export default function CountdownTimer(props: {initialMilliseconds:number}) {
   const { initialMilliseconds = 60000 } = props
   const [timeLeft, setTimeLeft] = useState<number>(initialMilliseconds);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const endTimeRef = useRef<number>(0);
+  const effectCountRef = useRef(0);
   const ringRef = useRef<HTMLAudioElement | null>(null)
   const fiveMinutesLeftRef = useRef<HTMLAudioElement | null>(null)
   const tenMinutesLeftRef = useRef<HTMLAudioElement | null>(null)
@@ -39,18 +57,51 @@ export default function CountdownTimer(props: {initialMilliseconds:number}) {
       if (newTime <= 0) {
         playAudio(ringRef);
         setIsRunning(false);
+        clearTimer();
         return 0;
       }
       return newTime;
     });
   }, [playAudio]);
 
+  // Restore timer state from localStorage on mount
   useEffect(() => {
-    if (isRunning && timeLeft > 0) {
-      endTimeRef.current = Date.now() + timeLeft;
-      intervalRef.current = setInterval(tick, 1000);
-    } else {
-      if (intervalRef.current) clearInterval(intervalRef.current);
+    const saved = loadTimer();
+
+    if (saved) {
+      if (saved.isRunning && saved.endTime) {
+        const remaining = saved.endTime - Date.now();
+        if (remaining > 0) {
+          setTimeLeft(Math.ceil(remaining / 1000) * 1000);
+          setIsRunning(true);
+        } else {
+          setTimeLeft(0);
+          clearTimer();
+        }
+      } else if (!saved.isRunning && saved.timeLeft != null) {
+        setTimeLeft(saved.timeLeft);
+      }
+    }
+
+    return () => { clearTimer(); };
+  }, []);
+
+  useEffect(() => {
+    effectCountRef.current++;
+
+    if (effectCountRef.current > 1) {
+      if (isRunning && timeLeft > 0) {
+        endTimeRef.current = Date.now() + timeLeft;
+        intervalRef.current = setInterval(tick, 1000);
+        saveTimer({ endTime: endTimeRef.current, isRunning: true });
+      } else {
+        if (intervalRef.current) clearInterval(intervalRef.current);
+        if (timeLeft > 0) {
+          saveTimer({ timeLeft, isRunning: false });
+        } else {
+          clearTimer();
+        }
+      }
     }
 
     return () => {

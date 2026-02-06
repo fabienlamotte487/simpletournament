@@ -17,15 +17,17 @@ function page() {
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
+
+  const matchs = useMemo(
+    () => tournament ? apairying(tournament.currentRoundPlayers) : [],
+    [tournament?.currentRoundPlayers]
+  );
+
   if(!tournament || tournament.currentRoundPlayers.length === 0){
     return null;
   }
-  
-  const matchs =  useMemo(
-    () => apairying(tournament.currentRoundPlayers),
-    [tournament.currentRoundPlayers]
-  );
-  const milliseconds = tournament?.config.roundDuration * 60 * 1000;
+
+  const milliseconds = tournament.config.roundDuration * 60 * 1000;
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
