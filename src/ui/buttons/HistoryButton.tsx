@@ -6,7 +6,9 @@ import Link from "next/link";
 
 function HistoryButton() {
     const {tournaments} = useTournamentStore()
-    const hasHistorycalTournament = tournaments.some(t => t.finished_at != null).length > 0;
+    const hasHistorycalTournament = tournaments.some(
+        t => t.finished_at != null
+    );
     
     if(!hasHistorycalTournament){
         return null;
