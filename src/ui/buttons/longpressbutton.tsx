@@ -25,6 +25,7 @@ function Longpressbutton(props: LongPressButtonProps) {
   return (
     <button
       className={`${className} ${isPressed ? 'opacity-70' : ''}`}
+      style={{ userSelect: 'none', WebkitTouchCallout: 'none' }}
       onMouseDown={handleStart}
       onMouseUp={handleEnd}
       onMouseLeave={handleEnd}
