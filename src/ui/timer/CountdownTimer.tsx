@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import ShowTimer from './ShowTimer';
 import Controls from './Controls';
 
@@ -8,47 +8,13 @@ export default function CountdownTimer(props: {initialMilliseconds:number}) {
   const [timeLeft, setTimeLeft] = useState<number>(initialMilliseconds);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const endTimeRef = useRef<number>(0);
   const ringRef = useRef<HTMLAudioElement | null>(null)
   const fiveMinutesLeftRef = useRef<HTMLAudioElement | null>(null)
   const tenMinutesLeftRef = useRef<HTMLAudioElement | null>(null)
 
-  useEffect(() => {
-    if (isRunning && timeLeft > 0) {
-      intervalRef.current = setInterval(() => {
-        setTimeLeft((prev) => {
-          const newTime = prev - 1000;
-          
-          if (newTime === 1000 * 60 * 10) {
-            playTenMinutesLeft();
-          }
-          if (newTime === 1000 * 60 * 5) {
-            playFiveMinutesLeft();
-          }
-          if (newTime <= 0) {
-            playDing();
-            setIsRunning(false);
-            return 0;
-          }
-          
-          return newTime;
-        });
-      }, 1000);
-    } else {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    }
-
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [isRunning]);
-  
-  const playAudio = (audioRef: React.RefObject<HTMLAudioElement | null>) => {
+  const playAudio = useCallback((audioRef: React.RefObject<HTMLAudioElement | null>) => {
     if (!audioRef.current) return
-
     try {
       audioRef.current.currentTime = 0
       audioRef.current.play().catch((error) => {
@@ -57,11 +23,50 @@ export default function CountdownTimer(props: {initialMilliseconds:number}) {
     } catch (error) {
       console.warn('Erreur audio:', error)
     }
-  }
+  }, []);
 
-  const playDing = () => playAudio(ringRef)
-  const playFiveMinutesLeft = () => playAudio(fiveMinutesLeftRef)
-  const playTenMinutesLeft = () => playAudio(tenMinutesLeftRef)
+  const tick = useCallback(() => {
+    const remaining = endTimeRef.current - Date.now();
+    const newTime = Math.max(0, Math.ceil(remaining / 1000) * 1000);
+
+    setTimeLeft((prev) => {
+      if (prev > 10 * 60 * 1000 && newTime <= 10 * 60 * 1000) {
+        playAudio(tenMinutesLeftRef);
+      }
+      if (prev > 5 * 60 * 1000 && newTime <= 5 * 60 * 1000) {
+        playAudio(fiveMinutesLeftRef);
+      }
+      if (newTime <= 0) {
+        playAudio(ringRef);
+        setIsRunning(false);
+        return 0;
+      }
+      return newTime;
+    });
+  }, [playAudio]);
+
+  useEffect(() => {
+    if (isRunning && timeLeft > 0) {
+      endTimeRef.current = Date.now() + timeLeft;
+      intervalRef.current = setInterval(tick, 1000);
+    } else {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    }
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [isRunning]);
+
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible' && isRunning) {
+        tick();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
+  }, [isRunning, tick]);
 
   const isFinished = timeLeft === 0;
 
