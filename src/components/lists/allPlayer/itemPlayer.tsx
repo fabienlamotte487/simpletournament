@@ -81,14 +81,14 @@ const ItemPlayer = (props: Player) => {
     }
 
     return (
-        <li className="itemPlayer">
+        <li className="itemPlayer py-0">
             {currentPlayer ? 
                 <div className="flex flex-col">
                     {pseudo}
                     <small className="italic">Déjà dans le tournoi</small>
                 </div>
             : 
-                <button className="w-full text-left" type="button" onClick={() => addPlayer(id)}>
+                <button className="w-full text-left py-2" type="button" onClick={() => addPlayer(id)}>
                     {pseudo}
                 </button>}
             <div className="flex">

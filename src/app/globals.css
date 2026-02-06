@@ -136,6 +136,10 @@ p{
   font-weight: bold;
 }
 
+.modal button{
+  cursor:pointer;
+}
+
 /* Player */
 .listPlayer {
   height: 350px;
@@ -154,7 +158,11 @@ p{
 .listPlayer .itemPlayer{
   border-radius: 7px;
   margin-bottom: 10px;
-  padding: 14px 10px;
+  padding: 0 10px;
+}
+
+.listPlayer .itemPlayer button.text-left{
+  padding: 14px 0;
 }
 
 .itemPlayer {
