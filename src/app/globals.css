@@ -352,6 +352,24 @@ ul.playgroundList li .player-left, ul.playgroundList li .player-right{
   width: 100%;
   display: flex;
   flex-direction: column;
+  border: none;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: inherit;
+}
+
+ul.playgroundList li .bye{
+  cursor: pointer;
+  border: none;
+  font: inherit;
+  color: inherit;
+}
+
+ul.playgroundList li .player-left:has(.player-selected), ul.playgroundList li .player-right:has(.player-selected) {
+  color: var(--gold);
 }
 
 ul.playgroundList li .player-right{

@@ -21,6 +21,8 @@ export const createTournament = (players: Player[], config:TournamentConfig, add
         created_at: Date.now(),
         finished_at: null,
         rounds: [],
+        currentRoundPlayers: [],
+        currentRoundMatches: [],
     });
 }
 

@@ -4,13 +4,11 @@ import { CLASSEMENT, PLAYGROUND } from "@/config/paths";
 import { checkScore } from "@/hooks/manageScore";
 import { ScoresObject, Tournament } from "@/types/tournament";
 import { prepareData } from "@/hooks/manageScore/prepareData";
-import { apairying } from "@/hooks/preparePlayers/apairying";
 import { useTournamentStore } from "@/stores/useTournamentStore";
 import TournamentPage from "@/ui/page/TournamentPage";
 import CountdownTimer from "@/ui/timer/CountdownTimer";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useMemo } from "react";
 
 function page() {
   const {tournament, updateTournament} = useTournamentStore();
@@ -18,10 +16,7 @@ function page() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
 
-  const matchs = useMemo(
-    () => tournament ? apairying(tournament.currentRoundPlayers) : [],
-    [tournament?.currentRoundPlayers]
-  );
+  const matchs = tournament?.currentRoundMatches ?? [];
 
   if(!tournament || tournament.currentRoundPlayers.length === 0){
     return null;

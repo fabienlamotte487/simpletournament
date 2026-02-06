@@ -34,6 +34,7 @@ export type Tournament = {
   rounds: Round[];
   players: TournamentPlayer[];
   currentRoundPlayers: TournamentPlayer[];
+  currentRoundMatches: TournamentPlayerPair[];
 }
 
 export type TournamentState = {
