@@ -15,12 +15,13 @@ const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
     <div className='f-group flex flex-col '>
       {label && <label htmlFor={name} className='f-label mr-1'>{label}</label>}
       <div className="relative">
-        <input 
+        <input
           type="text"
           className={classList}
-          id={name} 
+          id={name}
           onChange={e => setInput(e.target.value)}
-          name={name}  
+          onFocus={e => setTimeout(() => e.target.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300)}
+          name={name}
           ref={ref}
           value={value} />
           {deletable && value.length > 0 && 
