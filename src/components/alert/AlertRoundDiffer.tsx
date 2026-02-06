@@ -17,7 +17,6 @@ function AlertRoundDiffer() {
     }
 
     function closeAlert(){
-        console.log("on ferme")
         setIsAlertVisible(false);
     }
 
@@ -27,11 +26,13 @@ function AlertRoundDiffer() {
 
     useEffect(() => {
         let currentPlayers = players.filter(p => p.currentPlayer);
-        if(config.roundNumber !== calculRound(currentPlayers.length)){
-            openAlert()
-        } else {
+        
+        if(currentPlayers.length === 0 || config.roundNumber === calculRound(currentPlayers.length)){
             closeAlert()
+            return 
         }
+
+        openAlert()
     }, [config.roundNumber])
 
 
